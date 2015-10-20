@@ -8,43 +8,31 @@
 	<head>
 		<meta http-equiv="content-type" content="text/html; charset=UTF-8" />
 		<meta http-equiv="edit-Type" edit="text/html; charset=utf-8" />
-
-		<script type="text/javascript" src="js/javascript.js"></script>
-
-		<link rel="stylesheet" type="text/css" href="css/css.css">
+<!--
+		<script type="text/javascript" src="java.js"></script>
+-->
+		<link rel="stylesheet" type="text/css" href="css.css">
 	</head>
 	
     <body>
 
         <div id="pageHeader">
-            <h1>Emo-ing one corner</h1>
+            <h1>JavaScript Drag and Drop Tutorial</h1>
         </div>
             
         <div id="pageContainer">
-
-
-<!--         
-            <div class="drag" style="width:10%">Item 1</div>
+         
+            <div class="drag">Item 1 is &lt;div&gt;</div>
             
-            <div class="drag" style="width:10%">Item 2</div>
+            <div class="drag">Item 2 is &lt;div&gt;</div>
             
-            <button onclick="myFunction()">Click me</button>
--->			
+            <img class="drag" src="drag_image.png" alt="drag image" />
+            
+            <div class="drag">gaaaa</div>
+            
             <pre id="debug"> </pre>
-            
-<!--
-			<img class="drag" src="drag_image.png" alt="drag image" />
-            
-            
--->        
-
-			<input name="textbox1" id="textbox1" type="text"/>
-            </br>
-			<input name="buttonExecute" onclick="myFunction()" type="button" value="Post It" />
-
-
+        
         </div>
-
 
 
 
@@ -82,9 +70,9 @@
             // IE uses srcElement, others use target
             var target = e.target != null ? e.target : e.srcElement;
             
-//            _debug.innerHTML = target.className == 'drag' 
-//                ? 'draggable element clicked' 
-//                : 'NON-draggable element clicked';
+            _debug.innerHTML = target.className == 'drag' 
+                ? 'draggable element clicked' 
+                : 'NON-draggable element clicked';
         
             // for IE, left click == 1
             // for Firefox, left click == 0
@@ -139,7 +127,7 @@
             _dragElement.style.left = (_offsetX + e.clientX - _startX) + 'px';
             _dragElement.style.top = (_offsetY + e.clientY - _startY) + 'px';
             
-//            _debug.innerHTML = '(' + _dragElement.style.left + ', ' + _dragElement.style.top + ')';	
+            _debug.innerHTML = '(' + _dragElement.style.left + ', ' + _dragElement.style.top + ')';	
         }
         
         function OnMouseUp(e)
@@ -156,7 +144,7 @@
                 // this is how we know we're not dragging
                 _dragElement = null;
                 
-//                _debug.innerHTML = 'mouse up';
+                _debug.innerHTML = 'mouse up';
             }
         }
         //-->
