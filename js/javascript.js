@@ -9,6 +9,7 @@ function myFunctionPostIT()
 		ele.setAttribute("class","drag");
 		ele.setAttribute("style","width:20%");
 //		ele.style.backgroundColor = "green";
+		ele.style.border = "thick solid black";
 		ele.innerHTML=document.getElementById('textbox1').value;
 		output.appendChild(ele);
 }
@@ -21,7 +22,9 @@ function myFunctionPostITRed()
 		ele.setAttribute("id","timedrpact");
 		ele.setAttribute("class","drag");
 		ele.setAttribute("style","width:20%");
-		ele.style.backgroundColor = "red";
+//		ele.style.backgroundColor = "red";
+//		ele.style.borderColor = "red";
+		ele.style.border = "thick solid red";
 		ele.innerHTML=document.getElementById('textbox1').value;
 		output.appendChild(ele);
 }
@@ -34,7 +37,7 @@ function myFunctionPostITBlue()
 		ele.setAttribute("id","timedrpact");
 		ele.setAttribute("class","drag");
 		ele.setAttribute("style","width:20%");
-		ele.style.backgroundColor = "blue";
+		ele.style.border = "thick solid blue";
 		ele.innerHTML=document.getElementById('textbox1').value;
 		output.appendChild(ele);
 }
@@ -47,7 +50,7 @@ function myFunctionPostITGreen()
 		ele.setAttribute("id","timedrpact");
 		ele.setAttribute("class","drag");
 		ele.setAttribute("style","width:20%");
-		ele.style.backgroundColor = "green";
+		ele.style.border = "thick solid green";
 		ele.innerHTML=document.getElementById('textbox1').value;
 		output.appendChild(ele);
 }
