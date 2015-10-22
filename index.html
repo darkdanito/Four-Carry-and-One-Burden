@@ -1,7 +1,6 @@
 <!--	
 		References from: http://luke.breuer.com/tutorial/javascript-drag-and-drop-tutorial.aspx
 -->
-
 <!DOCTYPE HTML>
 
 <html>
@@ -20,19 +19,17 @@
 	</head>
 	
     <body>
-        <div id="canvas">
-
-            <pre id="debug">Emo-ing one corner</pre>
+        <div id="debug">
 
 			<table class="table table-bordered" style="width:100%">
             	<tr>
-                	<td>1</td>
-                    <td>Discussion - Session 1</td>
+                	<td><b>Members Joined: </b></td>
+                    <td style='text-align:center;vertical-align:middle'><b>Discussion - Session 1</b></td>
                 </tr>
                 
 				<tr>
-                	<td>2</td>
-                    <td rowspan="3"></td>
+                	<td>Lonely Boi Boi - Placeholder</td>
+                    <td rowspan="3" id="canvas"></td>
                 </tr>
                 
 				<tr>
@@ -41,11 +38,11 @@
                 </tr>
                 
 				<tr>
-                	<td><input name="buttonExecute" onclick="myFunction()" type="button" value="Post It" class="btn btn-lg btn-white"/>
+                	<td><input name="buttonExecute" onclick="myFunctionPostIT()" type="button" value="Post It" class="btn btn-lg btn-white"/>
                     
-                    <input name="buttonExecute" onclick="myFunction()" type="button" value="Red" class="btn btn-lg btn-danger"/>
-                    <input name="buttonExecute" onclick="myFunction()" type="button" value="Blue" class="btn btn-lg btn-primary"/>
-                    <input name="buttonExecute" onclick="myFunction()" type="button" value="Green" class="btn btn-lg btn-success"/>
+                    <input name="buttonExecute" onclick="myFunctionPostITRed()" type="button" value="Red" class="btn btn-lg btn-danger"/>
+                    <input name="buttonExecute" onclick="myFunctionPostITBlue()" type="button" value="Blue" class="btn btn-lg btn-primary"/>
+                    <input name="buttonExecute" onclick="myFunctionPostITGreen()" type="button" value="Green" class="btn btn-lg btn-success"/>
                     </td>
 				</tr>
             </table>

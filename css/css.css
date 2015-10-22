@@ -18,7 +18,9 @@ textarea
 .drag 
 {
 	border: 1px solid black; 
-	background-color: rgb(240, 240, 240); 
+/*
+	background-color: rgb(255, 255, 255); 
+*/
 	position: relative; 
 	padding: 0.5em; 
 	margin: 0 0 0.5em 1.5em; 
@@ -43,3 +45,5 @@ textarea
 	text-shadow: 0 1px 1px rgba(255, 255, 255, 0.00); 
 	-webkit-font-smoothing: antialiased; 
 }
+
+
