@@ -9,36 +9,52 @@
 		<meta http-equiv="content-type" content="text/html; charset=UTF-8" />
 		<meta http-equiv="edit-Type" edit="text/html; charset=utf-8" />
 
+		<script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/angularjs/1.2.28/angular.min.js"></script>
+    	<script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/angularjs/1.2.28//angular-route.min.js"></script>
+    	<script type="text/javascript" src="js/bootstrap.js"></script>
 		<script type="text/javascript" src="js/javascript.js"></script>
 
+        <link href="css/bootstrap.min.css" rel="stylesheet">
+        <link href="css/bootstrap-theme.min.css" rel="stylesheet">
 		<link rel="stylesheet" type="text/css" href="css/css.css">
 	</head>
 	
     <body>
-       	
-        <h1>Emo-ing one corner</h1>
-            
-        <div id="pageContainer">
+        <div id="canvas">
 
-            <pre id="debug"> </pre>
+            <pre id="debug">Emo-ing one corner</pre>
 
-			<textarea rows="5" cols="25" name="textbox1" id="textbox1" type="text">
-            Please input your ideas here	
-            </textarea>
-            
-			</br>
-			
-            <input name="buttonExecute" onclick="myFunction()" type="button" value="Post It" />
-            
-        </div>
+			<table class="table table-bordered" style="width:100%">
+            	<tr>
+                	<td>1</td>
+                    <td>Discussion - Session 1</td>
+                </tr>
+                
+				<tr>
+                	<td>2</td>
+                    <td rowspan="3"></td>
+                </tr>
+                
+				<tr>
+                	<td style="width:25%"><textarea rows="15" cols="35" name="textbox1" id="textbox1" type="text">Please input your ideas here</textarea>
+                    </td>
+                </tr>
+                
+				<tr>
+                	<td><input name="buttonExecute" onclick="myFunction()" type="button" value="Post It" class="btn btn-lg btn-white"/>
+                    
+                    <input name="buttonExecute" onclick="myFunction()" type="button" value="Red" class="btn btn-lg btn-danger"/>
+                    <input name="buttonExecute" onclick="myFunction()" type="button" value="Blue" class="btn btn-lg btn-primary"/>
+                    <input name="buttonExecute" onclick="myFunction()" type="button" value="Green" class="btn btn-lg btn-success"/>
+                    </td>
+				</tr>
+            </table>
+	</div>
 
 <!--
-            <div class="drag" style="width:10%">Item 1</div>
-            
-            <div class="drag" style="width:10%">Item 2</div>
-            
+            <div class="drag" style="width:10%">Item 1</div>            
+            <div class="drag" style="width:10%">Item 2</div>        
             <button onclick="myFunction()">Click me</button>
-
 			<img class="drag" src="drag_image.png" alt="drag image" />
 -->
 
