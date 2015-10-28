@@ -97,7 +97,8 @@
 				
 				document.getElementById("necrodiver").innerHTML = document.getElementById(e.target.id).innerHTML;
 				document.getElementById("necrodiver2").innerHTML = document.getElementById(e.target.id).innerHTML;
-//				document.getElementById("onDeleteBlock").innerHTML = document.getElementById(e.target.id).innerHTML;
+				document.getElementById("editPostContent").innerHTML = document.getElementById(e.target.id).innerHTML;
+				
 				
 				globalDivID = document.getElementById(e.target.id).id;
 				
@@ -146,4 +147,11 @@
 	
 			$q('#' + div22).closest("div").remove();
 		
+	}
+	
+	function onUpdate()
+	{
+		console.log(globalDivID);
+
+		document.getElementById(globalDivID).innerHTML = document.getElementById('editPostContent').value;
 	}
