@@ -79,7 +79,7 @@
 				
 				var $k = jQuery.noConflict();
 				
-					$k('#addModal').modal('show');
+					$k('#expandedPOSIT').modal('show');
 			
 				});
 				
@@ -93,7 +93,7 @@
 //				console.log(document.getElementById('necro').innerHTML);
 				
 				document.getElementById("necrodiver").innerHTML = document.getElementById(e.target.id).innerHTML;
-			
+				document.getElementById("necrodiver2").innerHTML = document.getElementById(e.target.id).innerHTML;
 			
 				});
 				
