@@ -4,9 +4,7 @@
 	}
 
 	var globalDivID = '';
-
 	var clickCount     = 0,
-	
 	
 	mouseMove   = function(e) 
 	{
@@ -55,7 +53,7 @@
 	{
 		clickCount++;
 		
-		// Single Click
+// 		Single Click
 		if(clickCount === 1) 
 		{
 			debug.addEventListener('mousemove', mouseMove);
@@ -66,35 +64,22 @@
 			clickCount = 0;
 			}, 400);
 		
-		// Double Click
+// 		Double Click
 		} else if (clickCount === 2) 
 		{
-//			console.log('double click');
-			
 			var $j = jQuery.noConflict();
 			$j(function() 
 			{
-//			  $j("#close-gallery-nav-button").click(function() {
 			  $j('div').on('dblclick', function(){
-//				$j('#gallery-nav-button').addClass('animated fadeOutRightBig');
-				
-//				console.log('double click inside');
-				
+
 				var $k = jQuery.noConflict();
-				
 					$k('#expandedPOSIT').modal('show');
-			
 				});
 				
 				
 				var $l = jQuery.noConflict();
 				$l('#debug').on('dblclick', 'div', function(e){
-//				$j('#gallery-nav-button').addClass('animated fadeOutRightBig');
-				
-//				console.log(e.target.id);
-			
-//				console.log(document.getElementById('necro').innerHTML);
-				
+
 				document.getElementById("necrodiver").innerHTML = document.getElementById(e.target.id).innerHTML;
 				document.getElementById("necrodiver2").innerHTML = document.getElementById(e.target.id).innerHTML;
 				document.getElementById("editPostContent").innerHTML = document.getElementById(e.target.id).innerHTML;
@@ -103,18 +88,7 @@
 				globalDivID = document.getElementById(e.target.id).id;
 				
 				});
-				
-				
-				
-				
-//				$('#the_div').on('dblclick', 'div', function(e) 
-//				{
-//    				console.log(e.target);
-//				});
-				
-				
-				
-			
+
 			});
 			
 			clear();
@@ -129,24 +103,10 @@
 
 	function onDelete()
 	{
-		console.log(globalDivID);
-		
 		var div22 = globalDivID;    
-		console.log(div22);
-//		var child = document.getElementById(pew);
-
-//		var parent = document.getElementById(debug);
-
-//		parent.removeChild(child);
-
-
 
 		var $q = jQuery.noConflict();
-		
-//			$q('#' + div22).parent().remove();
-	
-			$q('#' + div22).closest("div").remove();
-		
+		$q('#' + div22).closest("div").remove();
 	}
 	
 	function onUpdate()
@@ -160,8 +120,7 @@
 	{
 		console.log(globalDivID);
 
-		var $xx = jQuery.noConflict();
-	
+		var $xx = jQuery.noConflict();	
 		$xx("#" + globalDivID).css("border", "thick solid black");
 	}
 	
@@ -170,7 +129,6 @@
 		console.log(globalDivID);
 
 		var $xx = jQuery.noConflict();
-	
 		$xx("#" + globalDivID).css("border", "thick solid red");
 	}
 	
@@ -178,8 +136,7 @@
 	{
 		console.log(globalDivID);
 
-		var $xx = jQuery.noConflict();
-	
+		var $xx = jQuery.noConflict();	
 		$xx("#" + globalDivID).css("border", "thick solid blue");
 	}
 	
@@ -188,6 +145,5 @@
 		console.log(globalDivID);
 
 		var $xx = jQuery.noConflict();
-	
 		$xx("#" + globalDivID).css("border", "thick solid green");
 	}
