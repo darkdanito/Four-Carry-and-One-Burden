@@ -75,7 +75,7 @@
 			  $j('div').on('dblclick', function(){
 //				$j('#gallery-nav-button').addClass('animated fadeOutRightBig');
 				
-				console.log('double click inside');
+//				console.log('double click inside');
 				
 				var $k = jQuery.noConflict();
 				
@@ -88,7 +88,7 @@
 				$l('#debug').on('dblclick', 'div', function(e){
 //				$j('#gallery-nav-button').addClass('animated fadeOutRightBig');
 				
-				console.log(e.target.id);
+//				console.log(e.target.id);
 			
 //				console.log(document.getElementById('necro').innerHTML);
 				

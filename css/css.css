@@ -57,7 +57,7 @@ textarea
 	background-image: -o-linear-gradient(top, #ffffff, #ffffff); 
 	background-image: linear-gradient(#ffffff, #ffffff); 
 	border-color: #0a0000 #0a0000 hsl(360, 100%, -13%);
-	border-width: 5px;
+	border-width: 1px;
 	color: #333 !important; 
 	text-shadow: 0 1px 1px rgba(255, 255, 255, 0.00); 
 	-webkit-font-smoothing: antialiased; 
