@@ -70,16 +70,16 @@
 			var $j = jQuery.noConflict();
 			$j(function() 
 			{
-			  $j('div').on('dblclick', function(){
-
+			  $j('div').on('dblclick', function()
+			  {
 				var $k = jQuery.noConflict();
 					$k('#expandedPOSIT').modal('show');
 				});
 				
 				
 				var $l = jQuery.noConflict();
-				$l('#debug').on('dblclick', 'div', function(e){
-
+				$l('#debug').on('dblclick', 'div', function(e)
+				{
 				document.getElementById("necrodiver").innerHTML = document.getElementById(e.target.id).innerHTML;
 				document.getElementById("necrodiver2").innerHTML = document.getElementById(e.target.id).innerHTML;
 				document.getElementById("editPostContent").innerHTML = document.getElementById(e.target.id).innerHTML;
@@ -103,10 +103,8 @@
 
 	function onDelete()
 	{
-		var div22 = globalDivID;    
-
 		var $q = jQuery.noConflict();
-		$q('#' + div22).closest("div").remove();
+		$q('#' + globalDivID).closest("div").remove();
 	}
 	
 	function onUpdate()
@@ -118,32 +116,24 @@
 	
 	function onUpdateColor1()
 	{
-		console.log(globalDivID);
-
 		var $xx = jQuery.noConflict();	
 		$xx("#" + globalDivID).css("border", "thick solid black");
 	}
 	
 		function onUpdateColor2()
 	{
-		console.log(globalDivID);
-
 		var $xx = jQuery.noConflict();
 		$xx("#" + globalDivID).css("border", "thick solid red");
 	}
 	
 	function onUpdateColor3()
 	{
-		console.log(globalDivID);
-
 		var $xx = jQuery.noConflict();	
 		$xx("#" + globalDivID).css("border", "thick solid blue");
 	}
 	
 	function onUpdateColor4()
 	{
-		console.log(globalDivID);
-
 		var $xx = jQuery.noConflict();
 		$xx("#" + globalDivID).css("border", "thick solid green");
 	}
