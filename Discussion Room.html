@@ -77,7 +77,9 @@
                             </tr>
                             
                             <tr>
-                                <td><input name="buttonExecute" onclick="XXXXX()" type="button" value="Delete" class="btn btn-lg btn-white"/></td>
+                                <td>
+                                    <button class="btn" data-dismiss="modal" data-toggle="modal" href="#deletePOSIT">Delete</button>
+                                </td>
                             </tr>
                         </table>
                         
@@ -93,6 +95,41 @@
     
     
     
+    
+        <div class="modal fade" id="deletePOSIT" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+            <div class="modal-dialog">
+                <div class="modal-content">
+                    
+                    <div class="modal-body">
+                        
+
+                        <table style="width:100%">
+                        	<tr>
+                            	<td style="width:70%">Are you sure you want to delete this post from discussion ?</td>
+                                <td></td>
+                            </tr>
+                            
+                            <tr>
+                            	<td><button class="btn" data-dismiss="modal" onclick="onDelete()">Delete</button></td>
+                                <td><button class="btn" data-dismiss="modal">Cancel</button></td>
+                            </tr>
+                        </table>
+                        
+                    </div>
+<!--                    
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                    </div>
+-->
+                </div>
+            </div>
+        </div>        
+    
+    
+    
+    
+    
+		<!--	Main Code Block	-->    
         <div id="debug">
 
 			<table class="table table-bordered" style="width:100%">
@@ -104,7 +141,9 @@
 				<tr>
                 	<td>Yuuki Asuna</td>
                     <td rowspan="3" id="canvas">
-
+<!--
+							<div class="drag" style="width:10%" id="pew">Item 1</div> 
+-->
                     </td>
                 </tr>
                 
@@ -115,12 +154,10 @@
                 
 				<tr>
                 	<td>
-                    
-                    <input name="buttonExecute" onclick="myFunctionPostIT()" type="button" value="Post It" class="btn btn-lg btn-white"/>
-                    <input name="buttonExecute" onclick="myFunctionPostITRed()" type="button" value="Red" class="btn btn-lg btn-danger"/>
-                    <input name="buttonExecute" onclick="myFunctionPostITBlue()" type="button" value="Blue" class="btn btn-lg btn-primary"/>
-                    <input name="buttonExecute" onclick="myFunctionPostITGreen()" type="button" value="Green" class="btn btn-lg btn-success"/>
-                    
+                        <input name="buttonExecute" onclick="myFunctionPostIT()" type="button" value="Post It" class="btn btn-lg btn-white"/>
+                        <input name="buttonExecute" onclick="myFunctionPostITRed()" type="button" value="Red" class="btn btn-lg btn-danger"/>
+                        <input name="buttonExecute" onclick="myFunctionPostITBlue()" type="button" value="Blue" class="btn btn-lg btn-primary"/>
+                        <input name="buttonExecute" onclick="myFunctionPostITGreen()" type="button" value="Green" class="btn btn-lg btn-success"/>
                     </td>
 				</tr>
             </table>
@@ -148,8 +185,7 @@
         var _dragElement;			// needs to be passed from OnMouseDown to OnMouseMove
         var _oldZIndex = 0;			// we temporarily increase the z-index during drag
         var _debug = $('debug');	// makes life easier
-        
-        
+
         InitDragDrop();
         
         function InitDragDrop()

@@ -3,7 +3,10 @@
 		return document.getElementById(id);
 	}
 
+	var globalDivID = '';
+
 	var clickCount     = 0,
+	
 	
 	mouseMove   = function(e) 
 	{
@@ -94,7 +97,10 @@
 				
 				document.getElementById("necrodiver").innerHTML = document.getElementById(e.target.id).innerHTML;
 				document.getElementById("necrodiver2").innerHTML = document.getElementById(e.target.id).innerHTML;
-			
+//				document.getElementById("onDeleteBlock").innerHTML = document.getElementById(e.target.id).innerHTML;
+				
+				globalDivID = document.getElementById(e.target.id).id;
+				
 				});
 				
 				
@@ -119,3 +125,25 @@
 		debug.removeEventListener('mousemove', mouseMove);
 	});
 
+
+	function onDelete()
+	{
+		console.log(globalDivID);
+		
+		var div22 = globalDivID;    
+		console.log(div22);
+//		var child = document.getElementById(pew);
+
+//		var parent = document.getElementById(debug);
+
+//		parent.removeChild(child);
+
+
+
+		var $q = jQuery.noConflict();
+		
+//			$q('#' + div22).parent().remove();
+	
+			$q('#' + div22).closest("div").remove();
+		
+	}
