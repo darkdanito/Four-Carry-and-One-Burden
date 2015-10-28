@@ -68,7 +68,9 @@
                         <table style="width:100%">
                         	<tr>
                             	<td style="width:70%">Yuuki Asuna</td>
-                                <td><input name="buttonExecute" onclick="XXXXX()" type="button" value="Set Color" class="btn btn-lg btn-white"/></td>
+                                <td>
+                                    <button class="btn" data-dismiss="modal" data-toggle="modal" href="#editColorPOSIT">Set Color</button>
+                                </td>
                             </tr>
                             
                             <tr>
@@ -165,6 +167,61 @@
             </div>
         </div>       
     
+    
+    
+        <div class="modal fade" id="editColorPOSIT" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+            <div class="modal-dialog">
+                <div class="modal-content">
+                    
+                    <div class="modal-body">
+                        
+
+                        <table class="table table-bordered" style="width:100%">
+                        	<tr>
+                            	<td style="width:70%">Yuuki Asuna</td>
+                                <td></td>
+                            </tr>
+                            
+                            <tr>
+                            	<td colspan="2">
+  									<p id="editColorContent">Hmmmm</p>
+                                </td>
+                            </tr>
+                            
+                            <tr>
+                            	
+                               	<td>
+                                	<button class="btn" data-dismiss="modal" onclick="onUpdateColor1()" value="Normal">Normal</button>
+                                </td>
+                                
+                                <td>
+                                	<button class="btn" data-dismiss="modal" onclick="onUpdateColor2()" value="Red">Red</button>
+                                </td>
+                                
+                                <td>
+                                	<button class="btn" data-dismiss="modal" onclick="onUpdateColor3()" value="Blue">Blue</button>
+                                </td>
+                                
+                                <td>
+                                	<button class="btn" data-dismiss="modal" onclick="onUpdateColor4()" value="Green">Green</button>
+                                </td>
+                                
+                                <td>
+                                	<button class="btn" data-dismiss="modal">Cancel</button>
+                                </td>
+                            </tr>
+                        </table>
+                        
+                    </div>
+<!--                    
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                    </div>
+-->
+                </div>
+            </div>
+        </div>       
+        
     
 		<!--	Main Code Block	-->    
         <div id="debug">

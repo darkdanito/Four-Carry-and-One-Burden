@@ -98,8 +98,8 @@
 				document.getElementById("necrodiver").innerHTML = document.getElementById(e.target.id).innerHTML;
 				document.getElementById("necrodiver2").innerHTML = document.getElementById(e.target.id).innerHTML;
 				document.getElementById("editPostContent").innerHTML = document.getElementById(e.target.id).innerHTML;
-				
-				
+				document.getElementById("editColorContent").innerHTML = document.getElementById(e.target.id).innerHTML;
+							
 				globalDivID = document.getElementById(e.target.id).id;
 				
 				});
@@ -154,4 +154,40 @@
 		console.log(globalDivID);
 
 		document.getElementById(globalDivID).innerHTML = document.getElementById('editPostContent').value;
+	}
+	
+	function onUpdateColor1()
+	{
+		console.log(globalDivID);
+
+		var $xx = jQuery.noConflict();
+	
+		$xx("#" + globalDivID).css("border", "thick solid black");
+	}
+	
+		function onUpdateColor2()
+	{
+		console.log(globalDivID);
+
+		var $xx = jQuery.noConflict();
+	
+		$xx("#" + globalDivID).css("border", "thick solid red");
+	}
+	
+	function onUpdateColor3()
+	{
+		console.log(globalDivID);
+
+		var $xx = jQuery.noConflict();
+	
+		$xx("#" + globalDivID).css("border", "thick solid blue");
+	}
+	
+	function onUpdateColor4()
+	{
+		console.log(globalDivID);
+
+		var $xx = jQuery.noConflict();
+	
+		$xx("#" + globalDivID).css("border", "thick solid green");
 	}
