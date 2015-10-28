@@ -13,7 +13,7 @@
     	<script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/angularjs/1.2.28//angular-route.min.js"></script>
     	<script type="text/javascript" src="js/bootstrap.js"></script>
 		<script type="text/javascript" src="js/javascript.js"></script>
-		
+        
         <link href="css/bootstrap.min.css" rel="stylesheet">
         <link href="css/bootstrap-theme.min.css" rel="stylesheet">
 		<link rel="stylesheet" type="text/css" href="css/css.css">
@@ -22,6 +22,22 @@
 	</head>
 	
     <body>
+    
+        <div class="modal fade" id="addModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+            <div class="modal-dialog">
+                <div class="modal-content">
+                    <div class="modal-body">
+                        <h1 id="necrodiver">Hello</h1>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                    </div>
+                </div>
+            </div>
+        </div>    
+    
+    
+    
         <div id="debug">
 
 			<table class="table table-bordered" style="width:100%">
@@ -32,7 +48,16 @@
                 
 				<tr>
                 	<td>Lonely Boi Boi - Placeholder</td>
-                    <td rowspan="3" id="canvas"></td>
+                    <td rowspan="3" id="canvas">
+<!--
+                        <div id="the_div">
+    
+                        </div>
+						
+                        <div class="drag" id="necro" style="width:10%">Item 1</div>
+
+-->
+                    </td>
                 </tr>
                 
 				<tr>
@@ -50,7 +75,7 @@
                     </td>
 				</tr>
             </table>
-	</div>
+		</div>
 
 <!--
             <div class="drag" style="width:10%">Item 1</div>            
@@ -60,9 +85,24 @@
 -->
 
 
+	<script>
+/*        $('tr').on('dblclick', function() 
+		{
+            $('#addModal').modal('show');
+        });
+		
+		
+		$('div').on('dblclick', function() 
+		{
+            $('#addModal').modal('show');
+        });*/
+    </script>
+
+
 	<script language="JavaScript" type="text/javascript">
         <!--
-        function $(id)
+		
+		function $(id)
         {
             return document.getElementById(id);
         }
@@ -172,6 +212,8 @@
         }
         //-->
     </script>
+    
+	<script type="text/javascript" src="js/single-v-double.js"></script>
     
 	</body>
 </html>
