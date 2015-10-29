@@ -32,12 +32,12 @@
                     <div class="modal-body">
                         <table class="table table-bordered" style="width:100%">
                         	<tr>
-                            	<td style="width:70%">
+                            	<td style="width:90%">
                                 	Yuuki Asuna
                                 </td>
                  
 								<td rowspan="2">
-                                	<button class="btn" data-dismiss="modal" data-toggle="modal" href="#settingPOSIT">Menu Button</button>
+                                	<button class="btn" data-dismiss="modal" data-toggle="modal" href="#settingPOSIT">Menu</button>
                                 </td>
                             </tr>
                             
@@ -57,9 +57,9 @@
                 <div class="modal-content">                    
                     <div class="modal-body">
 
-                        <table style="width:100%">
+                        <table class="table table-bordered" style="width:100%">
                         	<tr>
-                            	<td style="width:70%">Yuuki Asuna</td>
+                            	<td style="width:90%">Yuuki Asuna</td>
                                 <td>
                                     <button class="btn" data-dismiss="modal" data-toggle="modal" href="#editColorPOSIT">Set Color</button>
                                 </td>
@@ -92,8 +92,7 @@
 
                         <table class="table table-bordered" style="width:100%">
                         	<tr>
-                            	<td style="width:70%">Are you sure you want to delete this post from discussion ?</td>
-                                <td></td>
+                            	<td style="width:70%" colspan="2">Are you sure you want to delete this post from discussion ?</td>
                             </tr>
                             
                             <tr>
@@ -115,13 +114,13 @@
 
                         <table class="table table-bordered" style="width:100%">
                         	<tr>
-                            	<td style="width:70%">Yuuki Asuna</td>
-                                <td></td>
+                            	<td style="width:70%" colspan="3">Yuuki Asuna</td>
+                                
                             </tr>
                             
                             <tr>
                             	<td colspan="2">
-                                	<textarea rows="10" cols="50" name="textbox2" id="editPostContent" type="text">
+                                	<textarea rows="10" cols="57" name="textbox2" id="editPostContent" type="text">
                                     	Please input your ideas here
                                      	</textarea>
                                 </td>
@@ -146,12 +145,11 @@
 
                         <table class="table table-bordered" style="width:100%">
                         	<tr>
-                            	<td style="width:70%">Yuuki Asuna</td>
-                                <td></td>
+                            	<td style="width:70%" colspan="5">Yuuki Asuna</td>
                             </tr>
                             
                             <tr>
-                            	<td colspan="2">
+                            	<td colspan="5">
   									<p id="editColorContent">Change POSIT Color Placeholder</p>
                                 </td>
                             </tr>
@@ -159,19 +157,19 @@
                             <tr>
                             	
                                	<td>
-                                	<button class="btn" data-dismiss="modal" onclick="onUpdateColor1()" value="Normal">Normal</button>
+									<input name="buttonExecute" onclick="onUpdateColor1()" data-dismiss="modal" type="button" value="Normal" class="btn btn-lg btn-white"/>
                                 </td>
                                 
                                 <td>
-                                	<button class="btn" data-dismiss="modal" onclick="onUpdateColor2()" value="Red">Red</button>
+                                    <input name="buttonExecute" onclick="onUpdateColor2()" data-dismiss="modal" type="button" value="Red" class="btn btn-lg btn-danger"/>
                                 </td>
                                 
                                 <td>
-                                	<button class="btn" data-dismiss="modal" onclick="onUpdateColor3()" value="Blue">Blue</button>
+                                    <input name="buttonExecute" onclick="onUpdateColor3()" data-dismiss="modal" type="button" value="Blue" class="btn btn-lg btn-primary"/>
                                 </td>
                                 
                                 <td>
-                                	<button class="btn" data-dismiss="modal" onclick="onUpdateColor4()" value="Green">Green</button>
+                                	<input name="buttonExecute" onclick="onUpdateColor4()" data-dismiss="modal" type="button" value="Green" class="btn btn-lg btn-success"/>
                                 </td>
                                 
                                 <td>
