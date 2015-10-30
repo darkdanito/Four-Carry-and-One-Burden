@@ -30,8 +30,8 @@
         <div class="modal fade" id="expandedPOSIT" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
             <div class="modal-dialog">
                 <div class="modal-content">
-                    
                     <div class="modal-body">
+                    
                         <table class="table table-bordered" style="width:100%">
                         	<tr>
                             	<td style="width:90%">
@@ -184,6 +184,29 @@
                 </div>
             </div>
         </div>       
+
+		<!--	Modal for confirmation of Snap an Image Block	--> 
+        <div class="modal fade" id="snapAnImage" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+            <div class="modal-dialog">
+                <div class="modal-content">
+                    <div class="modal-body">
+      
+                        <table class="table table-bordered" style="width:100%">
+                        	<tr>
+                            	<td style="width:90%">
+                                	Discussion has been downloaded !
+                                </td>
+                            </tr>
+                            
+                            <tr>
+                            	<td><button class="btn" data-dismiss="modal">Ok</button></td>
+                            </tr>
+                        </table>
+                        
+                    </div>
+                </div>
+            </div>
+        </div>    
     
 		<!--	Main Code Block	-->    
         <div id="debug">
@@ -192,7 +215,10 @@
             	<tr>
                 	<td><b>Members Joined: </b></td>
                     <td style='text-align:center;vertical-align:middle'><b>Discussion - Session 1</b></td>
-                    <td style="width:10%"><button class="btn" onclick="XXXXX()">Snap an Image</button></td>
+                    <td style="width:10%"><button class="btn" data-toggle="modal" href="#snapAnImage">Snap an Image</button></td>
+                    <!--
+                    	<button class="btn" onclick="XXXXX()">Snap an Image</button>
+                    -->
                 </tr>
                 
 				<tr>
