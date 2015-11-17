@@ -17,6 +17,8 @@
         <link href="../css/bootstrap.min.css" rel="stylesheet">
         
 		<link rel="stylesheet" type="text/css" href="../css/css.css">
+        
+        <title>C2's Index Page</title>
     </head>
 
     <body ng-app="mainModule" ng-controller="mainController">
@@ -27,7 +29,7 @@
 					<form name="personForm2" ng-submit="submitData(person2, 'ajaxSubmitResult1')" novalidate>
                         <table class="table table-bordered" style="width:50%">
                             <tr>
-                                <td colspan="2" style="width:80%"><b>C2 Login</b></td>
+                                <td colspan="2" style="width:80%"><b>C2 Intranet Login</b></td>
                             </tr>
                             
                             <tr>
@@ -37,11 +39,11 @@
                             
                             <tr>
                                 <td>Password: </td>
-                                <td><input id="lastNameEdit2" type="text" name="lastName" ng-model="person2.lastName" required /></td>
+                                <td><input id="lastNameEdit2" type="password" name="lastName" ng-model="person2.lastName" required /></td>
                             </tr>
                             
                             <tr>
-                                <td colspan="3"><button type="submit" ng-disabled="personForm2.$invalid">Submit</button></td>
+                                <td colspan="2"><button type="submit" ng-disabled="personForm2.$invalid">Login</button></td>
                             </tr>
                         </table>
                     </form>

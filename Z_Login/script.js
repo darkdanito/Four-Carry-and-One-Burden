@@ -4,12 +4,8 @@ var app = angular.module('mainModule', [], function () 			//	Main Controller for
 {
 })
 
-	app.controller("mainController", function ($scope, $http, $window, srvShareData)
-	{
-	$scope.person1 = {};
-	$scope.person2 = {};
-	$scope.person3 = {};
-	
+app.controller("mainController", function ($scope, $http, $window, srvShareData)
+{
 	$scope.briefCurrentLocation = srvShareData.getData();	
 	$scope.briefDestination = srvShareData.getData2();		
 	
@@ -22,7 +18,7 @@ var app = angular.module('mainModule', [], function () 			//	Main Controller for
 			person: person
 		}
 	};
-	
+
 	$http.post("server.php", null, config)
 	.success(function (data, status, headers, config)
 	{
@@ -31,10 +27,11 @@ var app = angular.module('mainModule', [], function () 			//	Main Controller for
 		console.log(data);
 		console.log(data.receivedFirstName);
 		console.log(data.receivedLastName);
+		
 		srvShareData.addData(data.receivedFirstName);
 		srvShareData.addData2(data.receivedLastName);
 		
-		$window.location.href = '/Four-Carry-and-One-Burden/Z_Login/index2.html';
+		$window.location.href = '/Four-Carry-and-One-Burden/Z_Login/C2_Intranet.html';
 	})
 	.error(function (data, status, headers, config)
 	{
