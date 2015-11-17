@@ -23,13 +23,42 @@
 
     <body ng-app="mainModule" ng-controller="mainController">
     
+		<div class="container">
+        	<div class="vertical-center-row">
+            	<div align="center">
+                	
+                    <table class="table table-bordered" style="width:50%">
+                        <tr>
+                            <td colspan="2" style="width:80%"><b>Welcome {{briefCurrentLocation[0]}} !!</b></td>
+                        </tr>
+                        
+                        <tr>
+                            <td style="width:40%">Password: </td>
+                            <td>{{briefDestination}}</td>
+                        </tr>
+                        
+                        <tr>
+                            <td colspan="2">List of applications available: </td>
+                        </tr>
+                        
+                        <tr>
+                            <td colspan="2"><a type="button" href="../index.html" class="btn btn-lg btn-primary" >POSIT</a></td>
+                        </tr>
+                    </table>
+                    
+                    
+                    
+                    
+                    
+                    
+                </div>
+            </div>
+        </div>
+        	
+    
         <div>
 
-			Hi, {{briefCurrentLocation}}
-            </br>
-            Password: {{briefDestination}}
-            
-            <a type="button" href="../index.html" class="btn btn-lg btn-primary" >POSIT</a>
+			
             
         </div>
     </body>
