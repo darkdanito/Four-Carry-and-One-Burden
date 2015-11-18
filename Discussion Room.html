@@ -226,10 +226,10 @@
 				<tr>
                 	<td>Yuuki Asuna</td>
                     <td rowspan="3" colspan="2" id="canvas" >
-					
+					<!--
                             <div id="results">
         					</div>
-                    
+                    -->
                     </td>
                 </tr>
                 
@@ -294,7 +294,8 @@
 //						'<p>' + msg.YPos + '</p>' + 
 						msg.message
 						'</div>';
-			document.querySelector("#results").innerHTML += html;
+//			document.querySelector("#results").innerHTML += html;
+			document.querySelector("#canvas").innerHTML += html;
 //			document.querySelector("#results").style.left = msg.XPos;
 //			document.querySelector("#results").style.top = msg.YPos;
 			
@@ -358,9 +359,7 @@
 		});
 		
 ///////////////////////////////////////////////////
-		
 
-		
 		function $(id)
         {
             return document.getElementById(id);
@@ -446,8 +445,9 @@
             
 			
 			var divName = e.target.id;
-			
-			if (divName != 'canvas' && divName != 'results' && divName != 'textbox1')
+
+//			if (divName != 'canvas' && divName != 'results' && divName != 'textbox1')			
+			if (divName != 'canvas' && divName != 'textbox1')
 			{
 				console.log(divName);
 			

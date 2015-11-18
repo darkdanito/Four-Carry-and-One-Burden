@@ -1,16 +1,16 @@
 	function myFunctionPostIT(color)
 	{
-		var output = document.getElementById('canvas');
-	
-		var uniqid = Date.now();
-	
-		var ele = document.createElement("div");
-			ele.setAttribute("id",uniqid);
-			ele.setAttribute("class","drag");
-			ele.setAttribute("style","width:20%");
-			ele.style.border = color;
-			ele.innerHTML=document.getElementById('textbox1').value;
-			output.appendChild(ele);
+//		var output = document.getElementById('canvas');
+//	
+//		var uniqid = Date.now();
+//	
+//		var ele = document.createElement("div");
+//			ele.setAttribute("id",uniqid);
+//			ele.setAttribute("class","drag");
+//			ele.setAttribute("style","width:20%");
+//			ele.style.border = color;
+//			ele.innerHTML=document.getElementById('textbox1').value;
+//			output.appendChild(ele);
 	}
 	
 	function $(id)
