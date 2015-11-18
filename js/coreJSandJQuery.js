@@ -41,6 +41,8 @@
 		// we need to access the element in OnMouseMove
 		_dragElement = target;
 		
+		console.log('Eeeew');
+		
 		// tell our code to start moving the element with the mouse
 		document.onmousemove = OnMouseMove;
 		
@@ -71,7 +73,7 @@
 // 		Single Click
 		if(clickCount === 1) 
 		{
-			debug.addEventListener('mousemove', mouseMove);
+////			debug.addEventListener('mousemove', mouseMove);
 		
 			singleClickTimer = setTimeout(function() 
 			{
@@ -95,6 +97,10 @@
 				var $l = jQuery.noConflict();
 				$l('#debug').on('dblclick', 'div', function(e)
 				{
+				
+				console.log(e);	
+				console.log(e.target.id);
+					
 				document.getElementById("necrodiver").innerHTML = document.getElementById(e.target.id).innerHTML;
 				document.getElementById("necrodiver2").innerHTML = document.getElementById(e.target.id).innerHTML;
 				document.getElementById("editPostContent").innerHTML = document.getElementById(e.target.id).innerHTML;
@@ -112,7 +118,7 @@
 
 	window.addEventListener('mouseup', function() 
 	{
-		debug.removeEventListener('mousemove', mouseMove);
+////		debug.removeEventListener('mousemove', mouseMove);
 	});
 
 
@@ -133,4 +139,19 @@
 	{
 		var $xx = jQuery.noConflict();	
 		$xx("#" + globalDivID).css("border", color);
+	}
+	
+	function getOffset(el) 
+	{
+		var _x = 0;
+		var _y = 0;
+		
+		while( el && !isNaN( el.offsetLeft ) && !isNaN( el.offsetTop ) ) 
+		{
+			_x += el.offsetLeft - el.scrollLeft;
+			_y += el.offsetTop - el.scrollTop;
+			el = el.offsetParent;
+		}
+		
+    	return { top: _y, left: _x };
 	}

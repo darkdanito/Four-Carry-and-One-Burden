@@ -226,7 +226,10 @@
 				<tr>
                 	<td>Yuuki Asuna</td>
                     <td rowspan="3" colspan="2" id="canvas" >
-
+					
+                            <div id="results">
+        					</div>
+                    
                     </td>
                 </tr>
                 
@@ -238,7 +241,7 @@
                 
 				<tr>
                 	<td>
-                        <input name="buttonExecute" onclick="myFunctionPostIT('thick solid black')" type="button" value="Post It" class="btn btn-lg btn-white"/>
+                        <input id = "sendMessage" name="buttonExecute" onclick="myFunctionPostIT('thick solid black')" type="button" value="Post It" class="btn btn-lg btn-white"/>
                         <input name="buttonExecute" onclick="myFunctionPostIT('thick solid red')" type="button" value="Red" class="btn btn-lg btn-danger"/>
                         <input name="buttonExecute" onclick="myFunctionPostIT('thick solid blue')" type="button" value="Blue" class="btn btn-lg btn-primary"/>
                         <input name="buttonExecute" onclick="myFunctionPostIT('thick solid green')" type="button" value="Green" class="btn btn-lg btn-success"/>
@@ -256,6 +259,100 @@
 
 	<script language="JavaScript" type="text/javascript">
         <!--
+		
+		
+		
+		
+///////////////////////////////////////////////////
+
+		var username;
+		
+		
+//		var buttonSetUser = document.getElementById('setUser');
+		var buttonSendMessage = document.getElementById('sendMessage');
+		var textMessage = document.getElementById('textbox1');
+		
+		var myFirebase = new Firebase("https://c4posit.firebaseIO.com/").child("chat");
+		
+		var usernameInput = "Yuuki Asuna";
+        username = usernameInput;
+		
+		myFirebase.on('child_added', function(snapshot) 
+		{
+			var key = snapshot.key();
+			var msg = snapshot.val();
+			
+			var x = getOffset( document.getElementById('canvas') ).top; 
+			var y = getOffset( document.getElementById('canvas') ).left; 
+			
+			var html = '<div id = "'+key+'" class="drag" style= "width: 20% ; left : '+x+'px ; top : '+y+'px">' + 
+//						'<b>' + msg.author + '</b>' + 
+//						'<p>' + msg.message + '</p>' +
+//						'<p>' + msg.XPos + '</p>' +
+//						'<p>' + msg.YPos + '</p>' + 
+						msg.message
+						'</div>';
+			document.querySelector("#results").innerHTML += html;
+		});
+		
+		
+		myFirebase.on('child_changed', function(snapshot) 
+		{
+			var key = snapshot.key();
+			var msg = snapshot.val();
+			var html =  
+//						'<b>' + msg.author + '</b>' + 
+//						'<p>' + msg.message + '</p>'
+//						+
+//						'<p>' + msg.XPos + '</p>' +
+//						'<p>' + msg.YPos + '</p>' 
+						msg.message
+						;
+			var chatComponent = document.querySelector("#"+key);
+			chatComponent.className = "drag";
+			chatComponent.innerHTML = html;
+			
+			chatComponent.style.left = msg.XPos;
+			chatComponent.style.top = msg.YPos;
+//			console.log(chatComponent);
+		});
+		
+		myFirebase.on('child_removed', function(snapshot) 
+		{
+			var key = snapshot.key();
+			var msg = snapshot.val();
+			var html = "Message has been deleted";
+			
+			document.querySelector("#"+key).innerHTML = html;
+			document.querySelector("#"+key).remove();
+		});
+		
+		
+		buttonSendMessage.addEventListener("click", function() 
+		{
+			var message = textMessage.value;
+			username = username.replace(/\</g, "&lt;").replace(/\>/g, "&gt;");
+			message = message.replace(/\</g, "&lt;").replace(/\>/g, "&gt;");
+			
+			var x = getOffset( document.getElementById('canvas') ).top; 
+//				console.log(x);
+			
+			var y = getOffset( document.getElementById('canvas') ).left; 
+//				console.log(y);
+			
+			x = 140;
+			y= 26;
+			
+			var dbXPos = x;
+			var dbYPos = y;
+			
+			myFirebase.push({author:username, message:message, XPos: dbXPos, YPos:dbYPos });
+			textMessage.value = "Please input your ideas here";
+		});
+		
+///////////////////////////////////////////////////
+		
+
 		
 		function $(id)
         {
@@ -340,7 +437,21 @@
             _dragElement.style.left = (_offsetX + e.clientX - _startX) + 'px';
             _dragElement.style.top = (_offsetY + e.clientY - _startY) + 'px';
             
-//          _debug.innerHTML = '(' + _dragElement.style.left + ', ' + _dragElement.style.top + ')';	
+			
+			var divName = e.target.id;
+			
+			if (divName != 'canvas' && divName != 'results' && divName != 'textbox1')
+			{
+				console.log(divName);
+			
+				var getXPos = _dragElement.style.left;
+				var getYPos = _dragElement.style.top;
+	//          _debug.innerHTML = '(' + _dragElement.style.left + ', ' + _dragElement.style.top + ')';	
+				
+				myFirebase.child(divName).update({ XPos: getXPos, YPos: getYPos });
+			}
+			
+
         }
         
         function OnMouseUp(e)
