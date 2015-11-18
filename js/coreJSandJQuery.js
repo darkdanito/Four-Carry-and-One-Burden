@@ -1,4 +1,4 @@
-	function myFunctionPostIT()
+	function myFunctionPostIT(color)
 	{
 		var output = document.getElementById('canvas');
 	
@@ -8,55 +8,7 @@
 			ele.setAttribute("id",uniqid);
 			ele.setAttribute("class","drag");
 			ele.setAttribute("style","width:20%");
-	//		ele.style.backgroundColor = "green";
-			ele.style.border = "thick solid black";
-			ele.innerHTML=document.getElementById('textbox1').value;
-			output.appendChild(ele);
-	}
-	
-	function myFunctionPostITRed()
-	{
-		var output = document.getElementById('canvas');
-		
-		var uniqid = Date.now();
-		
-		var ele = document.createElement("div");
-			ele.setAttribute("id",uniqid);
-			ele.setAttribute("class","drag");
-			ele.setAttribute("style","width:20%");
-	//		ele.style.backgroundColor = "red";
-	//		ele.style.borderColor = "red";
-			ele.style.border = "thick solid red";
-			ele.innerHTML=document.getElementById('textbox1').value;
-			output.appendChild(ele);
-	}
-	
-	function myFunctionPostITBlue()
-	{
-		var output = document.getElementById('canvas');
-		
-		var uniqid = Date.now();
-		
-		var ele = document.createElement("div");
-			ele.setAttribute("id",uniqid);
-			ele.setAttribute("class","drag");
-			ele.setAttribute("style","width:20%");
-			ele.style.border = "thick solid blue";
-			ele.innerHTML=document.getElementById('textbox1').value;
-			output.appendChild(ele);
-	}
-	
-	function myFunctionPostITGreen()
-	{
-		var output = document.getElementById('canvas');
-	
-		var uniqid = Date.now();
-		
-		var ele = document.createElement("div");
-			ele.setAttribute("id",uniqid);
-			ele.setAttribute("class","drag");
-			ele.setAttribute("style","width:20%");
-			ele.style.border = "thick solid green";
+			ele.style.border = color;
 			ele.innerHTML=document.getElementById('textbox1').value;
 			output.appendChild(ele);
 	}
@@ -177,26 +129,8 @@
 		document.getElementById(globalDivID).innerHTML = document.getElementById('editPostContent').value;
 	}
 	
-	function onUpdateColor1()
+	function onUpdateColor(color)
 	{
 		var $xx = jQuery.noConflict();	
-		$xx("#" + globalDivID).css("border", "thick solid black");
-	}
-	
-		function onUpdateColor2()
-	{
-		var $xx = jQuery.noConflict();
-		$xx("#" + globalDivID).css("border", "thick solid red");
-	}
-	
-	function onUpdateColor3()
-	{
-		var $xx = jQuery.noConflict();	
-		$xx("#" + globalDivID).css("border", "thick solid blue");
-	}
-	
-	function onUpdateColor4()
-	{
-		var $xx = jQuery.noConflict();
-		$xx("#" + globalDivID).css("border", "thick solid green");
+		$xx("#" + globalDivID).css("border", color);
 	}

@@ -17,6 +17,8 @@
     	<script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/angularjs/1.2.28//angular-route.min.js"></script>
     	<script type="text/javascript" src="js/bootstrap.js"></script>
         
+        <script src="https://cdn.firebase.com/js/client/2.2.7/firebase.js"></script>
+        
         <link href="css/bootstrap.min.css" rel="stylesheet">
         <link href="css/bootstrap-theme.min.css" rel="stylesheet">
 		<link rel="stylesheet" type="text/css" href="css/css.css">
@@ -159,19 +161,19 @@
                             <tr>
                             	
                                	<td>
-									<input name="buttonExecute" onclick="onUpdateColor1()" data-dismiss="modal" type="button" value="Normal" class="btn btn-lg btn-white"/>
+									<input name="buttonExecute" onclick="onUpdateColor('thick solid black')" data-dismiss="modal" type="button" value="Normal" class="btn btn-lg btn-white"/>
                                 </td>
                                 
                                 <td>
-                                    <input name="buttonExecute" onclick="onUpdateColor2()" data-dismiss="modal" type="button" value="Red" class="btn btn-lg btn-danger"/>
+                                    <input name="buttonExecute" onclick="onUpdateColor('thick solid red')" data-dismiss="modal" type="button" value="Red" class="btn btn-lg btn-danger"/>
                                 </td>
                                 
                                 <td>
-                                    <input name="buttonExecute" onclick="onUpdateColor3()" data-dismiss="modal" type="button" value="Blue" class="btn btn-lg btn-primary"/>
+                                    <input name="buttonExecute" onclick="onUpdateColor('thick solid blue')" data-dismiss="modal" type="button" value="Blue" class="btn btn-lg btn-primary"/>
                                 </td>
                                 
                                 <td>
-                                	<input name="buttonExecute" onclick="onUpdateColor4()" data-dismiss="modal" type="button" value="Green" class="btn btn-lg btn-success"/>
+                                	<input name="buttonExecute" onclick="onUpdateColor('thick solid green')" data-dismiss="modal" type="button" value="Green" class="btn btn-lg btn-success"/>
                                 </td>
                                 
                                 <td>
@@ -236,10 +238,10 @@
                 
 				<tr>
                 	<td>
-                        <input name="buttonExecute" onclick="myFunctionPostIT()" type="button" value="Post It" class="btn btn-lg btn-white"/>
-                        <input name="buttonExecute" onclick="myFunctionPostITRed()" type="button" value="Red" class="btn btn-lg btn-danger"/>
-                        <input name="buttonExecute" onclick="myFunctionPostITBlue()" type="button" value="Blue" class="btn btn-lg btn-primary"/>
-                        <input name="buttonExecute" onclick="myFunctionPostITGreen()" type="button" value="Green" class="btn btn-lg btn-success"/>
+                        <input name="buttonExecute" onclick="myFunctionPostIT('thick solid black')" type="button" value="Post It" class="btn btn-lg btn-white"/>
+                        <input name="buttonExecute" onclick="myFunctionPostIT('thick solid red')" type="button" value="Red" class="btn btn-lg btn-danger"/>
+                        <input name="buttonExecute" onclick="myFunctionPostIT('thick solid blue')" type="button" value="Blue" class="btn btn-lg btn-primary"/>
+                        <input name="buttonExecute" onclick="myFunctionPostIT('thick solid green')" type="button" value="Green" class="btn btn-lg btn-success"/>
                     </td>
 				</tr>
             </table>
