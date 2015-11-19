@@ -241,10 +241,14 @@
                 
 				<tr>
                 	<td>
-                        <input id = "sendMessage" name="buttonExecute" onclick="myFunctionPostIT('thick solid black')" type="button" value="Post It" class="btn btn-lg btn-white"/>
-                        <input name="buttonExecute" onclick="myFunctionPostIT('thick solid red')" type="button" value="Red" class="btn btn-lg btn-danger"/>
-                        <input name="buttonExecute" onclick="myFunctionPostIT('thick solid blue')" type="button" value="Blue" class="btn btn-lg btn-primary"/>
-                        <input name="buttonExecute" onclick="myFunctionPostIT('thick solid green')" type="button" value="Green" class="btn btn-lg btn-success"/>
+                        <input id = "sendMessage" name="buttonExecute" type="button" value="Black" class="btn btn-lg btn-white"/>
+					<!--                   
+                        <input id = "sendMessage" name="buttonExecute" type="button" value="Red" class="btn btn-lg btn-danger"/>
+                        <input id = "sendMessage" name="buttonExecute" type="button" value="Blue" class="btn btn-lg btn-primary"/>
+                        <input id = "sendMessage" name="buttonExecute" type="button" value="Green" class="btn btn-lg btn-success"/>
+                    <!--
+						<input name="buttonExecute" onclick="myFunctionPostIT('thick solid green')" type="button" value="Green" class="btn btn-lg btn-success"/>
+                    -->
                     </td>
 				</tr>
             </table>
@@ -278,9 +282,7 @@
 			
 			var x = getOffset( document.getElementById('canvas') ).top; 
 			var y = getOffset( document.getElementById('canvas') ).left; 
-			
-			
-			
+
 			var html = '<div id = "'+key+'" class="drag" style= "width: 20% ; border: '+msg.color+'; left : '+msg.XPos+' ; top : '+msg.YPos+'">' +
 //			var html = '<div id = "'+key+'" class="drag" style= "width: 20% ; position: absolute; left : '+x+'px ; top : '+y+'px">' + 
 //						'<b>' + msg.author + '</b>' + 
@@ -289,12 +291,7 @@
 //						'<p>' + msg.YPos + '</p>' + 
 						msg.message 
 						'</div>';
-//			document.querySelector("#results").innerHTML += html;
 			document.querySelector("#canvas").innerHTML += html;
-//			document.querySelector("#results").style.left = msg.XPos;
-//			document.querySelector("#results").style.top = msg.YPos;
-			
-//			console.log("bbb");
 		});
 		
 		
@@ -302,24 +299,15 @@
 		{
 			var key = snapshot.key();
 			var msg = snapshot.val();
-			var html =  
-//						'<b>' + msg.author + '</b>' + 
-//						'<p>' + msg.message + '</p>'
-//						+
-//						'<p>' + msg.XPos + '</p>' +
-//						'<p>' + msg.YPos + '</p>' 
-
-						msg.message
-						;
+			var html = msg.message;
 			var chatComponent = document.querySelector("#"+key);
+			
 			chatComponent.className = "drag";
 			chatComponent.innerHTML = html;
 			
 			chatComponent.style.left = msg.XPos;
 			chatComponent.style.top = msg.YPos;
 			chatComponent.style.border = msg.color;
-			
-//			console.log(chatComponent);
 		});
 		
 		myFirebase.on('child_removed', function(snapshot) 
@@ -336,22 +324,14 @@
 		buttonSendMessage.addEventListener("click", function() 
 		{
 			var message = textMessage.value;
+		
 			username = username.replace(/\</g, "&lt;").replace(/\>/g, "&gt;");
 			message = message.replace(/\</g, "&lt;").replace(/\>/g, "&gt;");
 			
-			var x = getOffset( document.getElementById('canvas') ).top; 
-//				console.log(x);
-			
-			var y = getOffset( document.getElementById('canvas') ).left; 
-//				console.log(y);
-			
-			x = 140;
-			y= 26;
+			var dbXPos = getOffset( document.getElementById('canvas') ).top; 
+			var dbYPos = getOffset( document.getElementById('canvas') ).left; 
 			
 			var color = "thick solid black";
-			
-			var dbXPos = x;
-			var dbYPos = y;
 			
 			myFirebase.push({author:username, message:message, color : color, XPos: dbXPos, YPos:dbYPos });
 			textMessage.value = "Please input your ideas here";
@@ -442,24 +422,17 @@
             // this is the actual "drag code"
             _dragElement.style.left = (_offsetX + e.clientX - _startX) + 'px';
             _dragElement.style.top = (_offsetY + e.clientY - _startY) + 'px';
-            
 			
 			divName = e.target.id;
-
-//			if (divName != 'canvas' && divName != 'results' && divName != 'textbox1')			
+	
 			if (divName != 'canvas' && divName != 'textbox1')
 			{
-				console.log(divName);
-			
 				var getXPos = _dragElement.style.left;
 				var getYPos = _dragElement.style.top;
 	//          _debug.innerHTML = '(' + _dragElement.style.left + ', ' + _dragElement.style.top + ')';	
-				
-				console.log("hmmm");
+	
 				myFirebase.child(divName).update({ XPos: getXPos, YPos: getYPos });
 			}
-			
-
         }
         
         function OnMouseUp(e)
@@ -482,8 +455,8 @@
 		
         //-->
 		
-	function myFunctionPostIT(color)
-	{
+//	function myFunctionPostIT(color)
+//	{
 //		var output = document.getElementById('canvas');
 //	
 //		var uniqid = Date.now();
@@ -495,7 +468,7 @@
 //			ele.style.border = color;
 //			ele.innerHTML=document.getElementById('textbox1').value;
 //			output.appendChild(ele);
-	}
+//	}
 	
 	function $(id)
 	{
@@ -503,7 +476,7 @@
 	}
 
 	var globalDivID = '';
-	var clickCount     = 0,
+	var clickCount = 0,
 	
 	mouseMove   = function(e) 
 	{
@@ -524,8 +497,6 @@
 		
 		// we need to access the element in OnMouseMove
 		_dragElement = target;
-		
-//		console.log('Eeeew');
 		
 		// tell our code to start moving the element with the mouse
 		document.onmousemove = OnMouseMove;
@@ -557,7 +528,7 @@
 // 		Single Click
 		if(clickCount === 1) 
 		{
-////			debug.addEventListener('mousemove', mouseMove);
+////		debug.addEventListener('mousemove', mouseMove);
 		
 			singleClickTimer = setTimeout(function() 
 			{
@@ -580,18 +551,13 @@
 				
 				var $l = jQuery.noConflict();
 				$l('#debug').on('dblclick', 'div', function(e)
-				{
-				
-				console.log(e);	
-				console.log(e.target.id);
-					
-				document.getElementById("necrodiver").innerHTML = document.getElementById(e.target.id).innerHTML;
-				document.getElementById("necrodiver2").innerHTML = document.getElementById(e.target.id).innerHTML;
-				document.getElementById("editPostContent").innerHTML = document.getElementById(e.target.id).innerHTML;
-				document.getElementById("editColorContent").innerHTML = document.getElementById(e.target.id).innerHTML;
-							
-				globalDivID = document.getElementById(e.target.id).id;
-				
+				{					
+					document.getElementById("necrodiver").innerHTML = document.getElementById(e.target.id).innerHTML;
+					document.getElementById("necrodiver2").innerHTML = document.getElementById(e.target.id).innerHTML;
+					document.getElementById("editPostContent").innerHTML = document.getElementById(e.target.id).innerHTML;
+					document.getElementById("editColorContent").innerHTML = document.getElementById(e.target.id).innerHTML;
+								
+					globalDivID = document.getElementById(e.target.id).id;
 				});
 
 			});
@@ -617,9 +583,6 @@
 	
 	function onUpdate()
 	{
-		console.log("edit omg");
-		console.log(globalDivID);
-
 //		document.getElementById(globalDivID).innerHTML = document.getElementById('editPostContent').value;
 		var newMessage = document.getElementById('editPostContent').value;
 		myFirebase.child(globalDivID).update({ message: newMessage });
