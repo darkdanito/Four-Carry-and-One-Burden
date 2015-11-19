@@ -22,11 +22,12 @@
         <link href="css/bootstrap.min.css" rel="stylesheet">
         <link href="css/bootstrap-theme.min.css" rel="stylesheet">
 		<link rel="stylesheet" type="text/css" href="css/css.css">
+        <script type="text/javascript" src="js/DiscussionRoomScript.js"></script>
         
         <title>POSIT</title>
 	</head>
 	
-    <body>
+    <body ng-app="mainModule" ng-controller="mainController">
 
 		<!--	Modal for double click of POSIT Code Block	--> 
         <div class="modal fade" id="expandedPOSIT" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
@@ -211,6 +212,7 @@
         </div>    
     
 		<!--	Main Code Block	-->    
+        
         <div id="debug">
 
 			<table class="table table-bordered" style="width:100%">
@@ -224,7 +226,7 @@
                 </tr>
                 
 				<tr>
-                	<td>Yuuki Asuna</td>
+                	<td>{{loggingUserName}}</td>
                     <td rowspan="3" colspan="2" id="canvas" >
 					<!--
                             <div id="results">
