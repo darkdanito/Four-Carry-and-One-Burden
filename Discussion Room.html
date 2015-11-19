@@ -299,7 +299,7 @@
 //			document.querySelector("#results").style.left = msg.XPos;
 //			document.querySelector("#results").style.top = msg.YPos;
 			
-			console.log("bbb");
+//			console.log("bbb");
 		});
 		
 		
@@ -359,7 +359,7 @@
 		});
 		
 ///////////////////////////////////////////////////
-
+				
 		function $(id)
         {
             return document.getElementById(id);
@@ -372,7 +372,8 @@
         var _dragElement;					// needs to be passed from OnMouseDown to OnMouseMove
         var _oldZIndex = 0;					// we temporarily increase the z-index during drag
         var _debug = $('debug');			// makes life easier
-
+		var divName;
+		
         InitDragDrop();
         
         function InitDragDrop()
@@ -444,7 +445,7 @@
             _dragElement.style.top = (_offsetY + e.clientY - _startY) + 'px';
             
 			
-			var divName = e.target.id;
+			divName = e.target.id;
 
 //			if (divName != 'canvas' && divName != 'results' && divName != 'textbox1')			
 			if (divName != 'canvas' && divName != 'textbox1')
@@ -478,7 +479,170 @@
 //				_debug.innerHTML = 'mouse up';
             }
         }
+		
         //-->
+		
+	function myFunctionPostIT(color)
+	{
+//		var output = document.getElementById('canvas');
+//	
+//		var uniqid = Date.now();
+//	
+//		var ele = document.createElement("div");
+//			ele.setAttribute("id",uniqid);
+//			ele.setAttribute("class","drag");
+//			ele.setAttribute("style","width:20%");
+//			ele.style.border = color;
+//			ele.innerHTML=document.getElementById('textbox1').value;
+//			output.appendChild(ele);
+	}
+	
+	function $(id)
+	{
+		return document.getElementById(id);
+	}
+
+	var globalDivID = '';
+	var clickCount     = 0,
+	
+	mouseMove   = function(e) 
+	{
+//		console.log('drag click');
+		debug.removeEventListener('mousemove', mouseMove);
+		clear();
+		
+		_startX = e.clientX;
+		_startY = e.clientY;
+		
+		// grab the clicked element's position
+		_offsetX = ExtractNumber(target.style.left);
+		_offsetY = ExtractNumber(target.style.top);
+		
+		// bring the clicked element to the front while it is being dragged
+		_oldZIndex = target.style.zIndex;
+		target.style.zIndex = 10000;
+		
+		// we need to access the element in OnMouseMove
+		_dragElement = target;
+		
+//		console.log('Eeeew');
+		
+		// tell our code to start moving the element with the mouse
+		document.onmousemove = OnMouseMove;
+		
+		// cancel out any text selections
+		document.body.focus();
+		
+		// prevent text selection in IE
+		document.onselectstart = function () { return false; };
+		// prevent IE from trying to drag an image
+		target.ondragstart = function() { return false; };
+		
+		// prevent text selection (except IE)
+		return false;
+	},
+	
+	clear = function() 
+	{
+		clickCount = 0;
+		clearTimeout(singleClickTimer);
+	},
+	
+	singleClickTimer;
+	
+	debug.addEventListener('mousedown', function() 
+	{
+		clickCount++;
+		
+// 		Single Click
+		if(clickCount === 1) 
+		{
+////			debug.addEventListener('mousemove', mouseMove);
+		
+			singleClickTimer = setTimeout(function() 
+			{
+//			console.log('single click');
+			clickCount = 0;
+			}, 400);
+		
+// 		Double Click
+		} else if (clickCount === 2) 
+		{
+			var $j = jQuery.noConflict();
+			$j(function() 
+			{
+			  $j('div').on('dblclick', function()
+			  {
+				var $k = jQuery.noConflict();
+					$k('#expandedPOSIT').modal('show');
+				});
+				
+				
+				var $l = jQuery.noConflict();
+				$l('#debug').on('dblclick', 'div', function(e)
+				{
+				
+				console.log(e);	
+				console.log(e.target.id);
+					
+				document.getElementById("necrodiver").innerHTML = document.getElementById(e.target.id).innerHTML;
+				document.getElementById("necrodiver2").innerHTML = document.getElementById(e.target.id).innerHTML;
+				document.getElementById("editPostContent").innerHTML = document.getElementById(e.target.id).innerHTML;
+				document.getElementById("editColorContent").innerHTML = document.getElementById(e.target.id).innerHTML;
+							
+				globalDivID = document.getElementById(e.target.id).id;
+				
+				});
+
+			});
+			
+			clear();
+		}
+	}, false);
+
+	window.addEventListener('mouseup', function() 
+	{
+////		debug.removeEventListener('mousemove', mouseMove);
+	});
+
+
+	function onDelete()
+	{
+		console.log("delete omg");
+		console.log(globalDivID);
+//		var $q = jQuery.noConflict();
+//		$q('#' + globalDivID).closest("div").remove();
+		myFirebase.child(globalDivID).remove();
+	}
+	
+	function onUpdate()
+	{
+		console.log(globalDivID);
+
+		document.getElementById(globalDivID).innerHTML = document.getElementById('editPostContent').value;
+	}
+	
+	function onUpdateColor(color)
+	{
+		var $xx = jQuery.noConflict();	
+		$xx("#" + globalDivID).css("border", color);
+	}
+	
+	function getOffset(el) 
+	{
+		var _x = 0;
+		var _y = 0;
+		
+		while( el && !isNaN( el.offsetLeft ) && !isNaN( el.offsetTop ) ) 
+		{
+			_x += el.offsetLeft - el.scrollLeft;
+			_y += el.offsetTop - el.scrollTop;
+			el = el.offsetParent;
+		}
+		
+    	return { top: _y, left: _x };
+	}
+		
     </script>
     
 	<script type="text/javascript" src="js/coreJSandJQuery.js"></script>
