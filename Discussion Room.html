@@ -627,8 +627,11 @@
 	
 	function onUpdateColor(color)
 	{
-		var $xx = jQuery.noConflict();	
-		$xx("#" + globalDivID).css("border", color);
+//		var $xx = jQuery.noConflict();	
+//		$xx("#" + globalDivID).css("border", color);
+		
+		var newColor = color;
+		myFirebase.child(globalDivID).update({ color: newColor });	
 	}
 	
 	function getOffset(el) 
