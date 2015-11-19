@@ -242,10 +242,10 @@
 				<tr>
                 	<td>
                         <input id = "sendMessage" name="buttonExecute" type="button" value="Black" class="btn btn-lg btn-white"/>
-					<!--                   
-                        <input id = "sendMessage" name="buttonExecute" type="button" value="Red" class="btn btn-lg btn-danger"/>
-                        <input id = "sendMessage" name="buttonExecute" type="button" value="Blue" class="btn btn-lg btn-primary"/>
-                        <input id = "sendMessage" name="buttonExecute" type="button" value="Green" class="btn btn-lg btn-success"/>
+					                  
+                        <input id = "sendMessage2" name="buttonExecute" type="button" value="Red" class="btn btn-lg btn-danger"/>
+                        <input id = "sendMessage3" name="buttonExecute" type="button" value="Blue" class="btn btn-lg btn-primary"/>
+                        <input id = "sendMessage4" name="buttonExecute" type="button" value="Green" class="btn btn-lg btn-success"/>
                     <!--
 						<input name="buttonExecute" onclick="myFunctionPostIT('thick solid green')" type="button" value="Green" class="btn btn-lg btn-success"/>
                     -->
@@ -268,6 +268,10 @@
 
 //		var buttonSetUser = document.getElementById('setUser');
 		var buttonSendMessage = document.getElementById('sendMessage');
+		var buttonSendMessage2 = document.getElementById('sendMessage2');
+		var buttonSendMessage3 = document.getElementById('sendMessage3');
+		var buttonSendMessage4 = document.getElementById('sendMessage4');
+		
 		var textMessage = document.getElementById('textbox1');
 		
 		var myFirebase = new Firebase("https://c4posit.firebaseIO.com/").child("chat");
@@ -337,8 +341,56 @@
 			textMessage.value = "Please input your ideas here";
 		});
 		
-///////////////////////////////////////////////////
-				
+		buttonSendMessage2.addEventListener("click", function() 
+		{
+			var message = textMessage.value;
+		
+			username = username.replace(/\</g, "&lt;").replace(/\>/g, "&gt;");
+			message = message.replace(/\</g, "&lt;").replace(/\>/g, "&gt;");
+			
+			var dbXPos = getOffset( document.getElementById('canvas') ).top; 
+			var dbYPos = getOffset( document.getElementById('canvas') ).left; 
+			
+			var color = "thick solid red";
+			
+			myFirebase.push({author:username, message:message, color : color, XPos: dbXPos, YPos:dbYPos });
+			textMessage.value = "Please input your ideas here";
+		});
+		
+		buttonSendMessage3.addEventListener("click", function() 
+		{
+			var message = textMessage.value;
+		
+			username = username.replace(/\</g, "&lt;").replace(/\>/g, "&gt;");
+			message = message.replace(/\</g, "&lt;").replace(/\>/g, "&gt;");
+			
+			var dbXPos = getOffset( document.getElementById('canvas') ).top; 
+			var dbYPos = getOffset( document.getElementById('canvas') ).left; 
+			
+			var color = "thick solid blue";
+			
+			myFirebase.push({author:username, message:message, color : color, XPos: dbXPos, YPos:dbYPos });
+			textMessage.value = "Please input your ideas here";
+		});
+		
+		buttonSendMessage4.addEventListener("click", function() 
+		{
+			var message = textMessage.value;
+		
+			username = username.replace(/\</g, "&lt;").replace(/\>/g, "&gt;");
+			message = message.replace(/\</g, "&lt;").replace(/\>/g, "&gt;");
+			
+			var dbXPos = getOffset( document.getElementById('canvas') ).top; 
+			var dbYPos = getOffset( document.getElementById('canvas') ).left; 
+			
+			var color = "thick solid green";
+			
+			myFirebase.push({author:username, message:message, color : color, XPos: dbXPos, YPos:dbYPos });
+			textMessage.value = "Please input your ideas here";
+		});
+//////////////////////////////////////////////////////////////////////////////
+//////////////////				Mouse Click Codes 		 	//////////////////
+//////////////////////////////////////////////////////////////////////////////				
 		function $(id)
         {
             return document.getElementById(id);
