@@ -12,10 +12,12 @@
         <link href="css/bootstrap-theme.min.css" rel="stylesheet">
 		<link rel="stylesheet" type="text/css" href="css/css.css">
         
+        <script type="text/javascript" src="Z_Login/script.js"></script>
+        
         <title>POSIT</title>
 	</head>
 	
-    <body>
+    <body ng-app="mainModule" ng-controller="mainController">
 
 		 <div class="container">
          	<div class="vertical-center-row">
@@ -28,7 +30,7 @@
                         
                         <tr>
                             <td style="width:40%">Session Name: </td>
-                            <td colspan="2"><input type="text"/></td>
+                            <td colspan="2"><input type="text" id="textbox1"/></td>
                         </tr>
                         
                         <tr>
@@ -42,7 +44,7 @@
                         </tr>
                         
                         <tr>
-                            <td colspan="3"><a type="button" href="Discussion Room.html" class="btn btn-lg btn-white">Create</a></td>
+                            <td colspan="3"><a type="button" ng-click="go()" class="btn btn-lg btn-white" >Create</a></td>
                         </tr>
                     </table>
                 </div>
