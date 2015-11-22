@@ -7,7 +7,10 @@
 		<script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/angularjs/1.2.28/angular.min.js"></script>
     	<script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/angularjs/1.2.28//angular-route.min.js"></script>
     	<script type="text/javascript" src="js/bootstrap.js"></script>
+        <script type="text/javascript" src="js/JoinRoomScript.js"></script>
 		
+        <script src="https://cdn.firebase.com/js/client/2.2.7/firebase.js"></script>
+        
         <link href="css/bootstrap.min.css" rel="stylesheet">
         <link href="css/bootstrap-theme.min.css" rel="stylesheet">
 		<link rel="stylesheet" type="text/css" href="css/css.css">
@@ -15,11 +18,16 @@
         <title>POSIT</title>
 	</head>
 	
-    <body>
+    <body ng-app="mainModule" ng-controller="mainController">
+    
+        	Username: {{userName}}
+            </br>
+            Password: {{userPassword}}
 
 		 <div class="container">
          	<div class="vertical-center-row">
             	<div align="center">
+                	<form name="personForm2" ng-submit="submitData(person2, 'ajaxSubmitResult1')" novalidate>
                     <table class="table table-bordered" style="width:50%">
                         <tr>
                             <td colspan="2" style="width:80%"><b>Join Discussion Room</b></td>
@@ -28,18 +36,23 @@
                         
                         <tr>
                             <td style="width:40%">Session Name: </td>
-                            <td colspan="2"><input type="text"/></td>
+                            <td colspan="2"><input id="firstNameEdit2" type="text" name="firstName" ng-model="person2.firstName" required />{{alertMessage}}</td>
                         </tr>
                         
                         <tr>
                             <td>Set Password: </td>
-                            <td colspan="2"><input type="password"/></td>
+                            <td colspan="2"><input id="lastNameEdit2" type="password" name="lastName" ng-model="person2.lastName" required />{{alertMessage}}</td>
                         </tr>
                         
                         <tr>
-                            <td colspan="3"><a type="button" href="Discussion Room.html" class="btn btn-lg btn-white">Join</a></td>
+                        	<!--
+                            <a type="button" href="Discussion Room.html" class="btn btn-lg btn-white">Join</a>
+                            <button type="submit" ng-disabled="personForm2.$invalid">Login</button>
+                            -->
+                            <td colspan="3"><button type="submit" ng-disabled="personForm2.$invalid">Login</button></td>
                         </tr>
                     </table>
+                    </form>
                 </div>
             </div>
          </div>

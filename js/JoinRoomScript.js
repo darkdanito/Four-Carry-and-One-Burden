@@ -7,13 +7,6 @@ app.controller("mainController", function ($scope, $http, $window, srvShareData)
 	$scope.userName = srvShareData.getData();	
 	$scope.userPassword = srvShareData.getData2();		
 
-	$scope.go = function() 
-	{
-		srvShareData.addData2(document.getElementById('textbox1').value);
-		
-		$window.location.href = '/Four-Carry-and-One-Burden/Discussion Room.html';
- 	}
-
 	$scope.submitData = function (person, resultVarName)
 	{
 		var config = 
@@ -29,22 +22,32 @@ app.controller("mainController", function ($scope, $http, $window, srvShareData)
 	{
 		$scope[resultVarName] = data;
 		
-		console.log(data.userName)	
+		var getter;
 		
-		if ( 
-			(data.userName == 'necrodiver' && data.password == '123')	||
-			(data.userName == 'pewpewbeam' && data.password == '123')
-			)
-		{	
-			srvShareData.addData(data.userName);
-			srvShareData.addData2(data.password);
-		
-			$window.location.href = '/Four-Carry-and-One-Burden/Z_Login/C2_Intranet.html';
-		}
-		else
+		new Firebase('https://c4posit.firebaseIO.com/').child(data.userName).once('value', function(snap) 
 		{
-			$scope.alertMessage = " Wrong Information";
-		}
+			getter = JSON.stringify(snap.val(), null, 2);
+//			console.log('I fetched a user!', getter);
+		});
+			
+			
+		setTimeout(function()
+		{
+			if ( 
+				(getter != 'null')
+				)
+			{	
+				console.log("Found Room");
+				srvShareData.addData2(data.userName);
+				$window.location.href = '/Four-Carry-and-One-Burden/Discussion Room.html';
+				
+			}
+			else
+			{	
+				console.log("Not Found Room");
+				$scope.alertMessage = " Wrong Info";
+			}
+		},4000); 	
 	})
 	.error(function (data, status, headers, config)
 	{
