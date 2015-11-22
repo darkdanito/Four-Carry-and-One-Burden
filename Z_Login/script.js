@@ -1,34 +1,18 @@
-// JavaScript Document
-
 var app = angular.module('mainModule', [], function () 			//	Main Controller for the Web Application
 {
 })
 
 app.controller("mainController", function ($scope, $http, $window, srvShareData)
 {	
-//	var ref = new Firebase("https://c4posit.firebaseIO.com/").child("user");
-	
-//	ref.orderByChild("height").on("child_added", function(snapshot) 
-//	{
-//	  console.log(snapshot.key() + " : " + snapshot.val().full_name + " : ");
-//	});
-
-
-	
-	
-	$scope.briefCurrentLocation = srvShareData.getData();	
-	$scope.briefDestination = srvShareData.getData2();		
+	$scope.userName = srvShareData.getData();	
+	$scope.userPassword = srvShareData.getData2();		
 
 	$scope.go = function() 
 	{
-		console.log("gaaaaa");
-		
-		console.log(document.getElementById('textbox1').value);
 		srvShareData.addData2(document.getElementById('textbox1').value);
 		
 		$window.location.href = '/Four-Carry-and-One-Burden/Discussion Room.html';
  	}
-
 
 	$scope.submitData = function (person, resultVarName)
 	{
@@ -45,16 +29,6 @@ app.controller("mainController", function ($scope, $http, $window, srvShareData)
 	{
 		$scope[resultVarName] = data;
 		
-		console.log(data);
-		console.log(data.receivedFirstName);
-		console.log(data.receivedLastName);
-		
-//		new Firebase('https://c4posit.firebaseIO.com/user/necrodiver').once('value', function(snap) 
-//		{
-//       		console.log('I fetched a user!', snap.val().password);
-//    	});
-		
-		
 		srvShareData.addData(data.receivedFirstName);
 		srvShareData.addData2(data.receivedLastName);
 		
@@ -67,10 +41,9 @@ app.controller("mainController", function ($scope, $http, $window, srvShareData)
 	};
 });
 
-
-
-
-
+////////////////////////////////////////////////////////////////////////
+////////////////////	Cookies Function	   /////////////////////////
+////////////////////////////////////////////////////////////////////////
 app.service('srvShareData', function($window) 				//	Cookie Function
 {
         var KEY = 'App.currentLocation';					//	Cookie Name for Current Location

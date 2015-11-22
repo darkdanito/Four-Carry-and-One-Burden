@@ -10,12 +10,10 @@
         <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/angularjs/1.2.28//angular-route.min.js"></script>
         
         <script src="script.js"></script>
-        <script src="https://cdn.firebase.com/js/client/2.2.7/firebase.js"></script>
+
 		<script type="text/javascript" src="../js/bootstrap.js"></script>
 		
         <link href="../css/bootstrap.min.css" rel="stylesheet">
-        <link href="../css/bootstrap.min.css" rel="stylesheet">
-        
 		<link rel="stylesheet" type="text/css" href="../css/css.css">
         
         <title>C2's Intranet Page</title>
@@ -23,18 +21,17 @@
 
     <body ng-app="mainModule" ng-controller="mainController">
     
+    		Username: {{userName}}
+            </br>
+            Password: {{userPassword}}
+    
 		<div class="container">
         	<div class="vertical-center-row">
             	<div align="center">
                 	
                     <table class="table table-bordered" style="width:50%">
                         <tr>
-                            <td colspan="2" style="width:80%"><b>Welcome {{briefCurrentLocation[0]}} !!</b></td>
-                        </tr>
-                        
-                        <tr>
-                            <td style="width:40%">Password: </td>
-                            <td>{{briefDestination}}</td>
+                            <td colspan="2" style="width:80%"><b>Welcome: {{userName[0]}}</b></td>
                         </tr>
                         
                         <tr>
