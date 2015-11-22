@@ -7,8 +7,8 @@
 	
 			$result = json_encode(array
 			(
-				"receivedFirstName" => $person->firstName,
-				"receivedLastName" => $person->lastName)
+				"userName" => $person->firstName,
+				"password" => $person->lastName)
 			);
 		}
   		else

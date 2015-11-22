@@ -21,27 +21,34 @@
 
     <body ng-app="mainModule" ng-controller="mainController">
     
+    Correct Login details to test: [Not using DB]
+    </br>
+    necrodiver // 123
+    </br>
+    pewpewbeam // 123
+    
+    
 		<div class="container">
         	<div class="vertical-center-row">
             	<div align="center">
 					<form name="personForm2" ng-submit="submitData(person2, 'ajaxSubmitResult1')" novalidate>
-                        <table class="table table-bordered" style="width:20%">
+                        <table class="table table-bordered" style="width:50%">
                             <tr>
                                 <td colspan="2"><b>C2 Intranet Login</b></td>
                             </tr>
                             
                             <tr>
                                 <td>Username: </td>
-                                <td><input id="firstNameEdit2" type="text" name="firstName" ng-model="person2.firstName" required /></td>
+                                <td><input id="firstNameEdit2" type="text" name="firstName" ng-model="person2.firstName" required />{{alertMessage}}</td>
                             </tr>
                             
                             <tr>
                                 <td>Password: </td>
-                                <td><input id="lastNameEdit2" type="password" name="lastName" ng-model="person2.lastName" required /></td>
+                                <td><input id="lastNameEdit2" type="password" name="lastName" ng-model="person2.lastName" required />{{alertMessage}}</td>
                             </tr>
                             
                             <tr>
-                                <td colspan="2"><button type="submit" ng-disabled="personForm2.$invalid">Login</button></td>
+                                <td colspan="2"><button type="submit" ng-disabled="personForm2.$invalid">Login</button>                                </td>
                             </tr>
                         </table>
                     </form>

@@ -29,10 +29,30 @@ app.controller("mainController", function ($scope, $http, $window, srvShareData)
 	{
 		$scope[resultVarName] = data;
 		
-		srvShareData.addData(data.receivedFirstName);
-		srvShareData.addData2(data.receivedLastName);
+		console.log(data.userName)	
 		
-		$window.location.href = '/Four-Carry-and-One-Burden/Z_Login/C2_Intranet.html';
+		if ( 
+			(data.userName == 'necrodiver' && data.password == '123')	||
+			(data.userName == 'pewpewbeam' && data.password == '123')
+			)
+		{
+			console.log("true");
+			
+			srvShareData.addData(data.userName);
+			srvShareData.addData2(data.password);
+		
+			$window.location.href = '/Four-Carry-and-One-Burden/Z_Login/C2_Intranet.html';
+		}
+		else
+		{
+			console.log("false");	
+			$scope.alertMessage = " Wrong Information";
+		}
+		
+//		srvShareData.addData(data.userName);
+//		srvShareData.addData2(data.password);
+		
+//		$window.location.href = '/Four-Carry-and-One-Burden/Z_Login/C2_Intranet.html';
 	})
 	.error(function (data, status, headers, config)
 	{
