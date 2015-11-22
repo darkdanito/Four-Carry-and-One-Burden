@@ -26,7 +26,8 @@ app.controller("mainController", function ($scope, $http, $window, srvShareData)
 		testUserName = srvShareData.getData()[0];
 		testRoomName = srvShareData.getData2()[0];
 		
-		console.log("mehhh", testRoomName);
+		console.log(testUserName);
+		console.log(testRoomName);
 	}	
 });
 
@@ -120,26 +121,62 @@ app.service('srvShareData', function($window) 				//	Cookie Function
 		var myFirebase = new Firebase("https://c4posit.firebaseIO.com/").child("chat");
 		
 		var myFirebase2 = new Firebase("https://c4posit.firebaseIO.com/").child("user");
+		var myFirebase6 = new Firebase("https://c4posit.firebaseIO.com/").child("roomDetails");
 		
 		var myFirebase3 = new Firebase("https://c4posit.firebaseIO.com/").child("chat2");
 		
-		console.log(testRoomName);
 		
 		var myFirebase5 = new Firebase("https://c4posit.firebaseIO.com/").child(testRoomName);	
 			
 
 
+			myFirebase6.update(
+			{
+			  someroom5: 
+			  {
+				roomName: "Meatshield",
+				password: "asd123!",
+				roomCreator: "nothing"
+			  }
+			});
+
+
+
+
+//			myFirebase6.set(
+//			{
+//			  someroom: 
+//			  {
+//				name: "PewPewBeam",
+//				password: "asd123!",
+//				roomName: "nothing"
+//			  },
+//			  someroom2: 
+//			  {
+//				name: "Necrodiver",
+//				password: "asd123!",
+//				roomName: "nothing"
+//			  },
+//			  someroom3: 
+//			  {
+//				name: "Meatshield",
+//				password: "asd123!",
+//				roomName: "nothing"
+//			  }
+//			});
+
+
+
 		
 			
-		var usernameInput = "Yuuki Asuna";
+		var usernameInput = testUserName;
         username = usernameInput;
 		
 		
 		var actualRoom = myFirebase5;
 		
 		
-		
-		
+
 		
 		actualRoom.on('child_added', function(snapshot) 
 		{
