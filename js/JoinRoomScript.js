@@ -23,24 +23,43 @@ app.controller("mainController", function ($scope, $http, $window, srvShareData)
 		$scope[resultVarName] = data;
 		
 		var getter;
+		var getterString;
 		
-		new Firebase('https://c4posit.firebaseIO.com/').child(data.userName).once('value', function(snap) 
+//		new Firebase('https://c4posit.firebaseIO.com/').child(data.userName).once('value', function(snap) 
+//		{
+//			getter = JSON.stringify(snap.val(), null, 2);
+//			console.log('I fetched a user!', getter);
+//		});
+			
+		new Firebase('https://c4posit.firebaseIO.com/roomDetails').child(data.userName).once('value', function(snap) 
 		{
-			getter = JSON.stringify(snap.val(), null, 2);
+			getterString = JSON.stringify( snap.val(), null, 2);
+			getter = snap.val();
 //			console.log('I fetched a user!', getter);
 		});
 			
+		console.log(data.userName);
+		console.log(data.password);
+//		
 			
 		setTimeout(function()
 		{
 			if ( 
-				(getter != 'null')
+				(getterString != 'null')
 				)
 			{	
-				console.log("Found Room");
-				srvShareData.addData2(data.userName);
-				$window.location.href = '/Four-Carry-and-One-Burden/Discussion Room.html';
 				
+				if (data.password == getter.password)
+				{
+					console.log(getter);
+					console.log("Found Room");
+					srvShareData.addData2(data.userName);
+					$window.location.href = '/Four-Carry-and-One-Burden/Discussion Room.html';
+				}
+				else
+				{
+					console.log("Wrong Password");
+				}
 			}
 			else
 			{	

@@ -11,7 +11,32 @@ app.controller("mainController", function ($scope, $http, $window, srvShareData)
 	{
 		srvShareData.addData2(document.getElementById('textbox1').value);
 		
-		$window.location.href = '/Four-Carry-and-One-Burden/Discussion Room.html';
+		console.log(srvShareData.getData());
+		console.log(srvShareData.getData2());
+		
+		var inputPassword = document.getElementById('password').value;
+		console.log(inputPassword);
+		
+		var myFirebase6 = new Firebase("https://c4posit.firebaseIO.com/roomDetails").child(srvShareData.getData2()[0]);
+		
+			myFirebase6.update(
+			{
+//			  inputPassword: 
+//			  {
+				roomName: srvShareData.getData2()[0],
+				password: inputPassword,
+				roomCreator: srvShareData.getData()[0]
+//			  }
+			});
+		
+		
+		setTimeout(function()
+		{
+			$window.location.href = '/Four-Carry-and-One-Burden/Discussion Room.html';
+		},3000); 
+
+		
+
  	}
 
 	$scope.submitData = function (person, resultVarName)

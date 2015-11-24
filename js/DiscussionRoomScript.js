@@ -130,16 +130,17 @@ app.service('srvShareData', function($window) 				//	Cookie Function
 			
 
 
-			myFirebase6.update(
-			{
-			  someroom5: 
-			  {
-				roomName: "Meatshield",
-				password: "asd123!",
-				roomCreator: "nothing"
-			  }
-			});
-
+//			myFirebase6.update(
+//			{
+//			  someroom5: 
+//			  {
+//				roomName: "Meatshield",
+//				password: "asd123!",
+//				roomCreator: "nothing"
+//			  }
+//			});
+		
+		
 
 
 
