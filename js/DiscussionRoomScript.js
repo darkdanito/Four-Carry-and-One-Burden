@@ -21,7 +21,7 @@ app.controller("mainController", function ($scope, $http, $window, srvShareData)
 	else
 	{
 		$scope.loggingUserName = srvShareData.getData()[0];	
-		$scope.loggingUserPassword = srvShareData.getData2()[0];	
+		$scope.roomName = srvShareData.getData2()[0];	
 
 		testUserName = srvShareData.getData()[0];
 		testRoomName = srvShareData.getData2()[0];
