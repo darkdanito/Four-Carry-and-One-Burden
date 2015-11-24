@@ -217,7 +217,12 @@
 
 			<table class="table table-bordered" style="width:100%">
             	<tr>
-                	<td><b>Members Joined: </b></td>
+                	<td>
+                    	<b id = "hostName">Host Name: </b>
+                        </br>
+                        <b id = "hostPassword">Room Password: Only Shown to Host</b>
+                        </br>
+                    </td>
                     <td style='text-align:center;vertical-align:middle'><b>Discussion Room: {{roomName}}</b></td>
                     <td style="width:10%"><button class="btn" data-toggle="modal" href="#snapAnImage">Snap an Image</button></td>
                     <!--
@@ -226,7 +231,10 @@
                 </tr>
                 
 				<tr>
-                	<td><p id ="pUserID">{{loggingUserName}}12345{{loggingUserPassword}}</p></td>
+                	<td>
+                    	<b>Members Joined:</b>
+                        </br> 
+                        <p id ="pUserID">{{loggingUserName}}</p></td>
                     <td rowspan="3" colspan="2" id="canvas" >
 					<!--
                             <div id="results">
