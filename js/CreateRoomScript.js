@@ -9,33 +9,43 @@ app.controller("mainController", function ($scope, $http, $window, srvShareData)
 
 	$scope.go = function() 
 	{
-		srvShareData.addData2(document.getElementById('textbox1').value);
-		
-		console.log(srvShareData.getData());
-		console.log(srvShareData.getData2());
-		
+		srvShareData.addData2(document.getElementById('roomName').value);
 		var inputPassword = document.getElementById('password').value;
-		console.log(inputPassword);
-		
-		var myFirebase6 = new Firebase("https://c4posit.firebaseIO.com/roomDetails").child(srvShareData.getData2()[0]);
-		
-		myFirebase6.update(
-		{
-//			  inputPassword: 
-//			  {
-			roomName: srvShareData.getData2()[0],
-			password: inputPassword,
-			roomCreator: srvShareData.getData()[0]
-//			  }
-		});
-		
-		
-		setTimeout(function()
-		{
-			$window.location.href = '/Four-Carry-and-One-Burden/Discussion Room.html';
-		},3000); 
 
-		
+		var getterString;
+		var getter;
+		new Firebase('https://c4posit.firebaseIO.com/roomDetails').child(srvShareData.getData2()[0]).once('value', function(snap) 
+		{
+			getterString = JSON.stringify( snap.val(), null, 2);
+			getter = snap.val();
+			
+			if ( getterString == 'null')
+			{
+				console.log("Room Does not exist");
+				document.getElementById('roomAlertMessage').innerHTML = "Creating Room ... ";
+				
+				var myFirebase6 = new Firebase("https://c4posit.firebaseIO.com/roomDetails").child(srvShareData.getData2()[0]);
+	
+				myFirebase6.update(
+				{
+					roomName: srvShareData.getData2()[0],
+					password: inputPassword,
+					roomCreator: srvShareData.getData()[0]
+				});
+				
+				setTimeout(function()
+				{
+					$window.location.href = '/Four-Carry-and-One-Burden/Discussion Room.html';
+				},3000); 
+					
+			}
+			else
+			{
+				console.log("Room Exist");
+				document.getElementById('roomAlertMessage').innerHTML = "Room Exist, Please use another name";
+			}
+		});
+	
 
  	}
 

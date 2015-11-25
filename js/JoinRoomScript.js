@@ -53,18 +53,21 @@ app.controller("mainController", function ($scope, $http, $window, srvShareData)
 				{
 					console.log(getter);
 					console.log("Found Room");
+					document.getElementById('roomAlertMessage').innerHTML = "Joining room ....";
+					
 					srvShareData.addData2(data.userName);
 					$window.location.href = '/Four-Carry-and-One-Burden/Discussion Room.html';
 				}
 				else
 				{
 					console.log("Wrong Password");
+					document.getElementById('roomAlertMessage').innerHTML = "Room Password is wrong, Please key in again.";
 				}
 			}
 			else
 			{	
 				console.log("Not Found Room");
-				$scope.alertMessage = " Wrong Info";
+				document.getElementById('roomAlertMessage').innerHTML = "Room not found, Please verify the room name";
 			}
 		},4000); 	
 	})

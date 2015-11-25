@@ -36,12 +36,12 @@
                         
                         <tr>
                             <td style="width:40%">Session Name: </td>
-                            <td colspan="2"><input id="firstNameEdit2" type="text" name="firstName" ng-model="person2.firstName" required />{{alertMessage}}</td>
+                            <td colspan="2"><input id="firstNameEdit2" type="text" name="firstName" ng-model="person2.firstName" required /></td>
                         </tr>
                         
                         <tr>
                             <td>Set Password: </td>
-                            <td colspan="2"><input id="lastNameEdit2" type="password" name="lastName" ng-model="person2.lastName" required />{{alertMessage}}</td>
+                            <td colspan="2"><input id="lastNameEdit2" type="password" name="lastName" ng-model="person2.lastName" required /></td>
                         </tr>
                         
                         <tr>
@@ -49,7 +49,7 @@
                             <a type="button" href="Discussion Room.html" class="btn btn-lg btn-white">Join</a>
                             <button type="submit" ng-disabled="personForm2.$invalid">Login</button>
                             -->
-                            <td colspan="3"><button type="submit" ng-disabled="personForm2.$invalid">Login</button></td>
+                            <td colspan="3"><button type="submit" ng-disabled="personForm2.$invalid">Login</button><p id="roomAlertMessage"></p></td>
                         </tr>
                     </table>
                     </form>
