@@ -42,7 +42,7 @@
                                 </td>
                  
 								<td rowspan="2">
-                                	<button class="btn" data-dismiss="modal" data-toggle="modal" href="#settingPOSIT" 
+                                	<button class="btn" id = "MenuButton" data-dismiss="modal" data-toggle="modal" href="#settingPOSIT" 
                                     	>Menu</button>
                                 </td>
                             </tr>
@@ -223,6 +223,7 @@
                         </br>
                         <b id = "hostPassword">Room Password: Only Shown to Host</b>
                         </br>
+                        {{getValue}}
                     </td>
                     <td style='text-align:center;vertical-align:middle'><b>Discussion Room: {{roomName}}</b></td>
                     <td style="width:10%"><button class="btn" data-toggle="modal" href="#snapAnImage">Snap an Image</button></td>
@@ -235,7 +236,9 @@
                 	<td>
                     	<b>Members Joined:</b>
                         </br> 
-                        <p id ="pUserID">{{loggingUserName}}</p></td>
+                        <p id ="pUserID">{{loggingUserName}}</p>
+                    	<p id ="checkStatus"></p>    
+                    </td>
                     <td rowspan="3" colspan="2" id="canvas" >
 					<!--
                             <div id="results">
@@ -264,26 +267,8 @@
 				</tr>
             </table>
 		</div>
-
-<!--
-            <div class="drag" style="width:10%">Item 1</div>            
-            <div class="drag" style="width:10%">Item 2</div>        
-            <button onclick="myFunction()">Click me</button>
-			<img class="drag" src="drag_image.png" alt="drag image" />
--->
-
-	<script language="JavaScript" type="text/javascript">
-        <!--
-
-
-		
-		
-		
-    </script>
     
     <script type="text/javascript" src="js/DiscussionRoomScript.js"></script>
-    
-	<script type="text/javascript" src="js/coreJSandJQuery.js"></script>
     
 	</body>
 </html>

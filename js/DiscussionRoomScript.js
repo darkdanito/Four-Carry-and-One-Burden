@@ -2,6 +2,9 @@
 
 var testUserName;
 var testRoomName;
+var testRoomCreater;
+var doubtNation;
+
 var onUpdateColor;
 var onUpdate;
 var onDelete;
@@ -29,6 +32,9 @@ app.controller("mainController", function ($scope, $http, $window, srvShareData)
 		testUserName = srvShareData.getData()[0];
 		testRoomName = srvShareData.getData2()[0];
 	}	
+	
+	$scope.getValue = doubtNation;
+	
 });
 
 app.service('srvShareData', function($window) 				//	Cookie Function
@@ -130,9 +136,11 @@ app.service('srvShareData', function($window) 				//	Cookie Function
 	
 				document.getElementById('hostName').innerHTML = "Host Name: "+getter.roomCreator;
 				
+				testRoomCreater = getter.roomCreator;
+				
 				if(testUserName == getter.roomCreator)
 				{
-					document.getElementById('hostPassword').innerHTML = "Host Password: "+getter.password;
+					document.getElementById('hostPassword').innerHTML = "Room Password: "+getter.password;
 				}
 			});
 
@@ -491,7 +499,27 @@ app.service('srvShareData', function($window) 				//	Cookie Function
 											document.getElementById('necrodiverName').innerHTML = popModal.author;
 											document.getElementById('necrodiver2Name').innerHTML = popModal.author;
 											document.getElementById('editPostContentName').innerHTML = popModal.author;
-											document.getElementById('editColorContentName').innerHTML = popModal.author;							
+											document.getElementById('editColorContentName').innerHTML = popModal.author;	
+											
+											console.log(testUserName);
+											console.log(testRoomCreater);
+											console.log(popModal.author)
+											
+											if((testUserName == testRoomCreater) || (testUserName ==popModal.author))
+											{
+									//			document.getElementById('checkStatus').innerHTML = "Can edit";
+									//			doubtNation = "can edit";
+												document.getElementById('MenuButton').disabled = false;
+											}
+											else
+											{
+									//			document.getElementById('checkStatus').innerHTML = "Cannot edit";
+									//			doubtNation = "cannot edit";
+												document.getElementById('MenuButton').disabled = true;
+											}
+											
+											// checkStatus
+																	
 										});
 
 										
