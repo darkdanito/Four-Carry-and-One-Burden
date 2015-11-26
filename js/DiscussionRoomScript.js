@@ -6,6 +6,9 @@ var onUpdateColor;
 var onUpdate;
 var onDelete;
 
+
+var canSeeMenuButton = 'false';
+
 var app = angular.module('mainModule', [], function () 			//	Main Controller for the Web Application
 {
 })
@@ -470,8 +473,26 @@ app.service('srvShareData', function($window) 				//	Cookie Function
 							document.getElementById("necrodiver2").innerHTML = document.getElementById(e.target.id).innerHTML;
 							document.getElementById("editPostContent").innerHTML = document.getElementById(e.target.id).innerHTML;
 							document.getElementById("editColorContent").innerHTML = document.getElementById(e.target.id).innerHTML;
+
+										globalDivID = document.getElementById(e.target.id).id;
 										
-							globalDivID = document.getElementById(e.target.id).id;
+										var popModal;
+										var popModalString;
+										
+										var firebaseString = 'https://c4posit.firebaseIO.com/'+testRoomName;
+										
+										new Firebase(firebaseString).child(e.target.id).once('value', function(snap) 
+										{
+											popModalString = JSON.stringify( snap.val(), null, 2);
+											popModal = snap.val();
+											
+											document.getElementById('necrodiverName').innerHTML = popModal.author;
+											document.getElementById('necrodiver2Name').innerHTML = popModal.author;
+											document.getElementById('editPostContentName').innerHTML = popModal.author;
+											document.getElementById('editColorContentName').innerHTML = popModal.author;							
+										});
+	
+										
 						});
 		
 					});
