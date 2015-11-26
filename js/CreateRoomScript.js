@@ -21,7 +21,6 @@ app.controller("mainController", function ($scope, $http, $window, srvShareData)
 			
 			if ( getterString == 'null')
 			{
-				console.log("Room Does not exist");
 				document.getElementById('roomAlertMessage').innerHTML = "Creating Room ... ";
 				
 				var myFirebase6 = new Firebase("https://c4posit.firebaseIO.com/roomDetails").child(srvShareData.getData2()[0]);
@@ -41,7 +40,6 @@ app.controller("mainController", function ($scope, $http, $window, srvShareData)
 			}
 			else
 			{
-				console.log("Room Exist");
 				document.getElementById('roomAlertMessage').innerHTML = "Room Exist, Please use another name";
 			}
 		});

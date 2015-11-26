@@ -28,6 +28,7 @@
 		 <div class="container">
          	<div class="vertical-center-row">
             	<div align="center">
+                    <form name="personForm2"  novalidate>
                     <table class="table table-bordered" style="width:50%">
                         <tr>
                             <td colspan="2" style="width:80%"><b>Create Discussion Room</b></td>
@@ -36,12 +37,12 @@
                         
                         <tr>
                             <td style="width:40%">Session Name: </td>
-                            <td colspan="2"><input type="text" id="roomName"/></td>
+                            <td colspan="2"><input type="text" id="roomName" ng-model="person2.roomName" required /></td>
                         </tr>
                         
                         <tr>
                             <td>Set Password: </td>
-                            <td colspan="2"><input type="password" id="password"/></td>
+                            <td colspan="2"><input type="password" id="password" ng-model="person2.password" required /></td>
                         </tr>
                         
                         <tr>
@@ -50,9 +51,13 @@
                         </tr>
                         
                         <tr>
-                            <td colspan="3"><a type="button" ng-click="go()" class="btn btn-lg btn-white" >Create</a> <p id="roomAlertMessage"></p></td>
+                            <td colspan="3"> 
+                            	<button type="submit" ng-click="go()" ng-disabled="personForm2.$invalid">Create</button>
+                                <p id="roomAlertMessage"></p>
+                            </td>
                         </tr>
                     </table>
+              		</form>
                 </div>
             </div>
          </div>

@@ -469,6 +469,8 @@ app.service('srvShareData', function($window) 				//	Cookie Function
 						var $l = jQuery.noConflict();
 						$l('#debug').on('dblclick', 'div', function(e)
 						{					
+							
+							
 							document.getElementById("necrodiver").innerHTML = document.getElementById(e.target.id).innerHTML;
 							document.getElementById("necrodiver2").innerHTML = document.getElementById(e.target.id).innerHTML;
 							document.getElementById("editPostContent").innerHTML = document.getElementById(e.target.id).innerHTML;
@@ -491,7 +493,7 @@ app.service('srvShareData', function($window) 				//	Cookie Function
 											document.getElementById('editPostContentName').innerHTML = popModal.author;
 											document.getElementById('editColorContentName').innerHTML = popModal.author;							
 										});
-	
+
 										
 						});
 		
