@@ -58,6 +58,10 @@ app.controller("mainController", function ($scope, $http, $window, srvShareData)
 		
 		if ( 
 			(data.userName == 'necrodiver' && data.password == '123')	||
+			(data.userName == 'jianhong' && data.password == '123456')	||
+			(data.userName == 'huatsin' && data.password == '321')		||
+			(data.userName == 'guogen' && data.password == '321')		||
+			(data.userName == 'zhengjie' && data.password == '123456')	||
 			(data.userName == 'pewpewbeam' && data.password == '123')
 			)
 		{	

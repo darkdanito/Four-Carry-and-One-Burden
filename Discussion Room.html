@@ -249,17 +249,17 @@
                 
 				<tr>
                 	<td style="width:25%">
-                    	<textarea rows="15" cols="33" name="textbox1" id="textbox1" type="text">Please input your ideas here</textarea>
+                    	<textarea rows="15" cols="33" name="textbox1" id="textbox1" type="text" ng-model="shipment_ids">Please input your ideas here</textarea>
                     </td>
                 </tr>
                 
 				<tr>
                 	<td>
-                        <input id = "sendMessage" name="buttonExecute" type="button" value="Black" class="btn btn-lg btn-white"/>
+                        <input id = "sendMessage" name="buttonExecute" type="button" value="Black" ng-disabled="!shipment_ids" class="btn btn-lg btn-white"/>
 					                  
-                        <input id = "sendMessage2" name="buttonExecute" type="button" value="Red" class="btn btn-lg btn-danger"/>
-                        <input id = "sendMessage3" name="buttonExecute" type="button" value="Blue" class="btn btn-lg btn-primary"/>
-                        <input id = "sendMessage4" name="buttonExecute" type="button" value="Green" class="btn btn-lg btn-success"/>
+                        <input id = "sendMessage2" name="buttonExecute" type="button" value="Red" ng-disabled="!shipment_ids" class="btn btn-lg btn-danger"/>
+                        <input id = "sendMessage3" name="buttonExecute" type="button" value="Blue" ng-disabled="!shipment_ids" class="btn btn-lg btn-primary"/>
+                        <input id = "sendMessage4" name="buttonExecute" type="button" value="Green" ng-disabled="!shipment_ids" class="btn btn-lg btn-success"/>
                     <!--
 						<input name="buttonExecute" onclick="myFunctionPostIT('thick solid green')" type="button" value="Green" class="btn btn-lg btn-success"/>
                     -->
