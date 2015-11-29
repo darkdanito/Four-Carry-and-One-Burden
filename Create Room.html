@@ -19,44 +19,40 @@
         <title>POSIT</title>
 	</head>
 	
-    <body ng-app="mainModule" ng-controller="mainController">
+    <body ng-app = "mainModule" ng-controller = "mainController">
 
-        	Username: {{userName}}
-            </br>
-            Password: {{userPassword}}
-
-		 <div class="container">
-         	<div class="vertical-center-row">
-            	<div align="center">
-                    <form name="personForm2"  novalidate>
-                    <table class="table table-bordered" style="width:50%">
-                        <tr>
-                            <td colspan="2" style="width:80%"><b>Create Discussion Room</b></td>
-                            <td style="width:20%"><a href="Index.html"><img src="images/POSIT Logo.jpg" alt="POSIT"></a></td>
-                        </tr>
-                        
-                        <tr>
-                            <td style="width:40%">Session Name: </td>
-                            <td colspan="2"><input type="text" id="roomName" ng-model="person2.roomName" required /></td>
-                        </tr>
-                        
-                        <tr>
-                            <td>Set Password: </td>
-                            <td colspan="2"><input type="password" id="password" ng-model="person2.password" required /></td>
-                        </tr>
-                        
-                        <tr>
-                            <td>Set Canvas: </td>
-                            <td colspan="2"><input type="file"></td>
-                        </tr>
-                        
-                        <tr>
-                            <td colspan="3"> 
-                            	<button type="submit" ng-click="go()" ng-disabled="personForm2.$invalid">Create</button>
-                                <p id="roomAlertMessage"></p>
-                            </td>
-                        </tr>
-                    </table>
+		 <div class = "container">
+         	<div class = "vertical-center-row">
+            	<div align = "center">
+                    <form name = "personForm2" novalidate>
+                        <table class = "table table-bordered" style = "width : 50%">
+                            <tr>
+                                <td colspan = "2" style = "width : 80%"><b>Create Discussion Room</b></td>
+                                <td style = "width : 20%"><a href = "Index.html"><img src = "images/POSIT Logo.jpg" alt = "POSIT"></a></td>
+                            </tr>
+                            
+                            <tr>
+                                <td style = "width : 40%">Session Name: </td>
+                                <td colspan = "2"><input type = "text" id = "roomName" ng-model = "person2.roomName" required/></td>
+                            </tr>
+                            
+                            <tr>
+                                <td>Set Password: </td>
+                                <td colspan = "2"><input type = "password" id = "password" ng-model = "person2.password" required/></td>
+                            </tr>
+                            
+                            <tr>
+                                <td>Set Canvas: </td>
+                                <td colspan = "2"><input type = "file"></td>
+                            </tr>
+                            
+                            <tr>
+                                <td colspan = "3"> 
+                                    <button type = "submit" ng-click = "go()" ng-disabled = "personForm2.$invalid">Create</button>
+                                    <p id = "roomAlertMessage"></p>
+                                </td>
+                            </tr>
+                        </table>
               		</form>
                 </div>
             </div>

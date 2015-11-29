@@ -34,9 +34,6 @@ textarea
 .drag 
 {
 	border: 1px solid black; 
-/*
-	background-color: rgb(255, 255, 255); 
-*/
 	position: relative; 
 	padding: 0.5em; 
 	margin: 0 0 0.5em 1.5em; 

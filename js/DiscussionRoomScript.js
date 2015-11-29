@@ -1,9 +1,6 @@
-// JavaScript Document
-
 var testUserName;
 var testRoomName;
 var testRoomCreater;
-var doubtNation;
 
 var onUpdateColor;
 var onUpdate;
@@ -21,7 +18,6 @@ app.controller("mainController", function ($scope, $http, $window, srvShareData)
 	if (srvShareData.getData().length == 0)
 	{
 		$scope.loggingUserName = 'Yuuki Asuna [Never Login]';	
-		$scope.loggingUserPassword = 'Yuuki Asuna password [Never Login]';	
 		testUserName = 'Yuuki Asuna [Never Login]';
 	}
 	else
@@ -32,9 +28,6 @@ app.controller("mainController", function ($scope, $http, $window, srvShareData)
 		testUserName = srvShareData.getData()[0];
 		testRoomName = srvShareData.getData2()[0];
 	}	
-	
-	$scope.getValue = doubtNation;
-	
 });
 
 app.service('srvShareData', function($window) 				//	Cookie Function
@@ -107,7 +100,6 @@ app.service('srvShareData', function($window) 				//	Cookie Function
         };
 });
 
-
 		setTimeout(function()
 		{
 			var username;
@@ -144,16 +136,6 @@ app.service('srvShareData', function($window) 				//	Cookie Function
 				}
 			});
 
-//			myFirebase6.update(
-//			{
-//			  someroom5: 
-//			  {
-//				roomName: "Meatshield",
-//				password: "asd123!",
-//				roomCreator: "nothing"
-//			  }
-//			});		
-	
 			var usernameInput = testUserName;
 			username = usernameInput;
 		
@@ -367,8 +349,7 @@ app.service('srvShareData', function($window) 				//	Cookie Function
 				{
 					var getXPos = _dragElement.style.left;
 					var getYPos = _dragElement.style.top;
-		//          _debug.innerHTML = '(' + _dragElement.style.left + ', ' + _dragElement.style.top + ')';	
-		
+	
 					actualRoom.child(divName).update({ XPos: getXPos, YPos: getYPos });
 				}
 			}
@@ -385,9 +366,7 @@ app.service('srvShareData', function($window) 				//	Cookie Function
 					_dragElement.ondragstart = null;
 			
 					// this is how we know we're not dragging
-					_dragElement = null;
-					
-		//				_debug.innerHTML = 'mouse up';
+					_dragElement = null;					
 				}
 			}
 			
@@ -452,13 +431,10 @@ app.service('srvShareData', function($window) 				//	Cookie Function
 				
 		// 		Single Click
 				if(clickCount === 1) 
-				{
-		////		debug.addEventListener('mousemove', mouseMove);
-				
+				{				
 					singleClickTimer = setTimeout(function() 
 					{
-		//			console.log('single click');
-					clickCount = 0;
+						clickCount = 0;
 					}, 400);
 				
 		// 		Double Click
@@ -473,60 +449,42 @@ app.service('srvShareData', function($window) 				//	Cookie Function
 							$k('#expandedPOSIT').modal('show');
 						});
 						
-						
 						var $l = jQuery.noConflict();
 						$l('#debug').on('dblclick', 'div', function(e)
-						{					
-							
-							
+						{						
 							document.getElementById("necrodiver").innerHTML = document.getElementById(e.target.id).innerHTML;
 							document.getElementById("necrodiver2").innerHTML = document.getElementById(e.target.id).innerHTML;
 							document.getElementById("editPostContent").innerHTML = document.getElementById(e.target.id).innerHTML;
 							document.getElementById("editColorContent").innerHTML = document.getElementById(e.target.id).innerHTML;
 
-										globalDivID = document.getElementById(e.target.id).id;
-										
-										var popModal;
-										var popModalString;
-										
-										var firebaseString = 'https://c4posit.firebaseIO.com/'+testRoomName;
-										
-										new Firebase(firebaseString).child(e.target.id).once('value', function(snap) 
-										{
-											popModalString = JSON.stringify( snap.val(), null, 2);
-											popModal = snap.val();
-											
-											document.getElementById('necrodiverName').innerHTML = popModal.author;
-											document.getElementById('necrodiver2Name').innerHTML = popModal.author;
-											document.getElementById('editPostContentName').innerHTML = popModal.author;
-											document.getElementById('editColorContentName').innerHTML = popModal.author;	
-											
-											console.log(testUserName);
-											console.log(testRoomCreater);
-											console.log(popModal.author)
-											
-											if((testUserName == testRoomCreater) || (testUserName ==popModal.author))
-											{
-									//			document.getElementById('checkStatus').innerHTML = "Can edit";
-									//			doubtNation = "can edit";
-												document.getElementById('MenuButton').disabled = false;
-											}
-											else
-											{
-									//			document.getElementById('checkStatus').innerHTML = "Cannot edit";
-									//			doubtNation = "cannot edit";
-												document.getElementById('MenuButton').disabled = true;
-											}
-											
-											// checkStatus
-																	
-										});
-
-										
+							globalDivID = document.getElementById(e.target.id).id;
+							
+							var popModal;
+							var popModalString;
+							
+							var firebaseString = 'https://c4posit.firebaseIO.com/'+testRoomName;
+							
+							new Firebase(firebaseString).child(e.target.id).once('value', function(snap) 
+							{
+								popModalString = JSON.stringify( snap.val(), null, 2);
+								popModal = snap.val();
+								
+								document.getElementById('necrodiverName').innerHTML = popModal.author;
+								document.getElementById('necrodiver2Name').innerHTML = popModal.author;
+								document.getElementById('editPostContentName').innerHTML = popModal.author;
+								document.getElementById('editColorContentName').innerHTML = popModal.author;	
+								
+								if((testUserName == testRoomCreater) || (testUserName ==popModal.author))
+								{
+									document.getElementById('MenuButton').disabled = false;
+								}
+								else
+								{
+									document.getElementById('MenuButton').disabled = true;
+								}					
+							});		
 						});
-		
 					});
-					
 					clear();
 				}
 			}, false);
@@ -579,6 +537,4 @@ app.service('srvShareData', function($window) 				//	Cookie Function
 				
 				return { top: _y, left: _x };
 			}
-		
-
 		},1000); 

@@ -23,14 +23,13 @@
         <link href="css/bootstrap-theme.min.css" rel="stylesheet">
 		<link rel="stylesheet" type="text/css" href="css/css.css">
         
-        
         <title>POSIT</title>
 	</head>
 	
-    <body ng-app="mainModule" ng-controller="mainController">
+    <body ng-app = "mainModule" ng-controller = "mainController">
 
 		<!--	Modal for double click of POSIT Code Block	--> 
-        <div class="modal fade" id="expandedPOSIT" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class = "modal fade" id = "expandedPOSIT" tabindex = "-1" role = "dialog" aria-labelledby = "exampleModalLabel" aria-hidden = "true">
             <div class="modal-dialog">
                 <div class="modal-content">
                     <div class="modal-body">
@@ -42,8 +41,7 @@
                                 </td>
                  
 								<td rowspan="2">
-                                	<button class="btn" id = "MenuButton" data-dismiss="modal" data-toggle="modal" href="#settingPOSIT" 
-                                    	>Menu</button>
+                                	<button class="btn" id = "MenuButton" data-dismiss="modal" data-toggle="modal" href="#settingPOSIT">Menu</button>
                                 </td>
                             </tr>
                             
@@ -219,17 +217,13 @@
 			<table class="table table-bordered" style="width:100%">
             	<tr>
                 	<td>
-                    	<b id = "hostName">Host Name: </b>
+                    	<b id = "hostName"></b>
                         </br>
                         <b id = "hostPassword">Room Password: Only Shown to Host</b>
                         </br>
-                        {{getValue}}
                     </td>
                     <td style='text-align:center;vertical-align:middle'><b>Discussion Room: {{roomName}}</b></td>
                     <td style="width:10%"><button class="btn" data-toggle="modal" href="#snapAnImage">Snap an Image</button></td>
-                    <!--
-                    	<button class="btn" onclick="XXXXX()">Snap an Image</button>
-                    -->
                 </tr>
                 
 				<tr>
@@ -239,12 +233,7 @@
                         <p id ="pUserID">{{loggingUserName}}</p>
                     	<p id ="checkStatus"></p>    
                     </td>
-                    <td rowspan="3" colspan="2" id="canvas" >
-					<!--
-                            <div id="results">
-        					</div>
-                    -->
-                    </td>
+                    <td rowspan="3" colspan="2" id="canvas"></td>
                 </tr>
                 
 				<tr>
@@ -260,9 +249,6 @@
                         <input id = "sendMessage2" name="buttonExecute" type="button" value="Red" ng-disabled="!shipment_ids" class="btn btn-lg btn-danger"/>
                         <input id = "sendMessage3" name="buttonExecute" type="button" value="Blue" ng-disabled="!shipment_ids" class="btn btn-lg btn-primary"/>
                         <input id = "sendMessage4" name="buttonExecute" type="button" value="Green" ng-disabled="!shipment_ids" class="btn btn-lg btn-success"/>
-                    <!--
-						<input name="buttonExecute" onclick="myFunctionPostIT('thick solid green')" type="button" value="Green" class="btn btn-lg btn-success"/>
-                    -->
                     </td>
 				</tr>
             </table>

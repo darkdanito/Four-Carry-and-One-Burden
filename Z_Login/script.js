@@ -11,24 +11,16 @@ app.controller("mainController", function ($scope, $http, $window, srvShareData)
 	{
 		srvShareData.addData2(document.getElementById('textbox1').value);
 		
-		console.log(srvShareData.getData());
-		console.log(srvShareData.getData2());
-		
 		var inputPassword = document.getElementById('password').value;
-		console.log(inputPassword);
 		
 		var myFirebase6 = new Firebase("https://c4posit.firebaseIO.com/roomDetails").child(srvShareData.getData2()[0]);
 		
-			myFirebase6.update(
-			{
-//			  inputPassword: 
-//			  {
-				roomName: srvShareData.getData2()[0],
-				password: inputPassword,
-				roomCreator: srvShareData.getData()[0]
-//			  }
-			});
-		
+		myFirebase6.update(
+		{
+			roomName: srvShareData.getData2()[0],
+			password: inputPassword,
+			roomCreator: srvShareData.getData()[0]
+		});
 		
 		setTimeout(function()
 		{
@@ -54,15 +46,12 @@ app.controller("mainController", function ($scope, $http, $window, srvShareData)
 	{
 		$scope[resultVarName] = data;
 		
-		console.log(data.userName)	
-		
 		if ( 
-			(data.userName == 'necrodiver' && data.password == '123')	||
 			(data.userName == 'jianhong' && data.password == '123456')	||
 			(data.userName == 'huatsin' && data.password == '321')		||
 			(data.userName == 'guogen' && data.password == '321')		||
 			(data.userName == 'zhengjie' && data.password == '123456')	||
-			(data.userName == 'pewpewbeam' && data.password == '123')
+			(data.userName == 'yunyong' && data.password == '123')
 			)
 		{	
 			srvShareData.addData(data.userName);

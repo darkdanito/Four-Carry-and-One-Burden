@@ -43,8 +43,6 @@ app.controller("mainController", function ($scope, $http, $window, srvShareData)
 				document.getElementById('roomAlertMessage').innerHTML = "Room Exist, Please use another name";
 			}
 		});
-	
-
  	}
 
 	$scope.submitData = function (person, resultVarName)

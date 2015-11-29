@@ -22,36 +22,23 @@ app.controller("mainController", function ($scope, $http, $window, srvShareData)
 	{
 		$scope[resultVarName] = data;
 		
-		var getter;
-		var getterString;
-			
-		new Firebase('https://c4posit.firebaseIO.com/roomDetails').child(data.userName).once('value', function(snap) 
+		if ( 
+			(data.userName == 'jianhong' && data.password == '123456')	||
+			(data.userName == 'huatsin' && data.password == '321')		||
+			(data.userName == 'guogen' && data.password == '321')		||
+			(data.userName == 'zhengjie' && data.password == '123456')	||
+			(data.userName == 'yunyong' && data.password == '123')
+			)
+		{	
+			srvShareData.addData(data.userName);
+			srvShareData.addData2(data.password);
+		
+			$window.location.href = '/Four-Carry-and-One-Burden/Z_Login/C2_Intranet.html';
+		}
+		else
 		{
-			getterString = JSON.stringify( snap.val(), null, 2);
-			getter = snap.val();
-		});
-						
-		setTimeout(function()
-		{
-			if (getterString != 'null')
-			{	
-				if (data.password == getter.password)
-				{
-					document.getElementById('roomAlertMessage').innerHTML = "Joining room ....";
-					
-					srvShareData.addData2(data.userName);
-					$window.location.href = '/Four-Carry-and-One-Burden/Discussion Room.html';
-				}
-				else
-				{
-					document.getElementById('roomAlertMessage').innerHTML = "Room Password is wrong, Please key in again.";
-				}
-			}
-			else
-			{	
-				document.getElementById('roomAlertMessage').innerHTML = "Room not found, Please verify the room name";
-			}
-		},4000); 	
+			$scope.alertMessage = " Wrong Information";
+		}
 	})
 	.error(function (data, status, headers, config)
 	{
