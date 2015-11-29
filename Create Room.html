@@ -38,7 +38,7 @@
                             
                             <tr>
                                 <td>Set Password: </td>
-                                <td colspan = "2"><input type = "password" id = "password" ng-model = "person2.password" required/></td>
+                                <td colspan = "2"><input type = "password" id = "password" ng-model = "person2.password" ng-minlength = "5" required/></td>
                             </tr>
                             
                             <tr>
@@ -48,7 +48,14 @@
                             
                             <tr>
                                 <td colspan = "3"> 
-                                    <button type = "submit" ng-click = "go()" ng-disabled = "personForm2.$invalid">Create</button>
+                                    <div ng-show = "!personForm2.$invalid">
+                                        <button type = "submit" ng-click = "go()" ng-disabled = "personForm2.$invalid">Create</button>
+                                    </div>
+                                   
+                                    <div ng-show = "personForm2.$invalid">
+                                    	<button type="button" class="disabled" disabled>Create</button>
+                                    </div>
+                                    
                                     <p id = "roomAlertMessage"></p>
                                 </td>
                             </tr>
