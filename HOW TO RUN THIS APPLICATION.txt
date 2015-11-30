@@ -1,0 +1,5 @@
+Steps:
+
+Proceed to folder: Z_Login
+Run C2_Index.html with XMAPP for example.
+Login with the pre-define account 
