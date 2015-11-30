@@ -37,11 +37,21 @@
                             
                             <tr>
                                 <td>Set Password: </td>
-                                <td colspan = "2"><input id = "lastNameEdit2" type = "password" name = "lastName" ng-model = "person2.lastName" required/></td>
+                                <td colspan = "2"><input id = "lastNameEdit2" type = "password" name = "lastName" ng-model = "person2.lastName" ng-minlength = "5" required/></td>
                             </tr>
                             
                             <tr>
-                                <td colspan = "3"><button type = "submit" ng-disabled = "personForm2.$invalid">Join</button><p id = "roomAlertMessage"></p></td>
+                                <td colspan = "3">
+                                    <div ng-show = "!personForm2.$invalid">
+                                        <button type = "submit" ng-disabled = "personForm2.$invalid">Join</button>
+                                    </div>
+                                   
+                                    <div ng-show = "personForm2.$invalid">
+                                    	<button type="button" class="disabled" disabled>Join</button>
+                                    </div>
+                                    
+                                    <p id = "roomAlertMessage"></p>
+                                </td>
                             </tr>
                         </table>
                     </form>
